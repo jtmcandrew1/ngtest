@@ -84,7 +84,7 @@ public getRssFeeds() : Observable<any>
        
           
 public getPlayerCounts() : Observable<any> {
-        return this.http.get(config.API_URL + "api/home/GetPlayerCounts")
+        return this.http.get(config.API_URL2 + "api/home/GetPlayerCounts" + "?addDropPeriod=" + config.ADD_DROP_PERIOD)
                     .map((res: any) => {
                         
             return res.json();
@@ -114,7 +114,7 @@ public getPoolerCompareList(poolerId1, poolerId2) : Observable<any> {
             })} 
             
 public getActivePlayers() : Observable<any> {
-    return this.http.get(config.API_URL2 + "api/home/getActivePlayerList")
+    return this.http.get(config.API_URL2 + "api/home/getActivePlayerList" + "?addDropPeriod=" + config.ADD_DROP_PERIOD)
                 .map((res: any) => {
                     
         return res.json();

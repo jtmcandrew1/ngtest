@@ -46,7 +46,8 @@
         <div class="card-block" *ngIf="pooler.Open">
           <div class="h6 playerdetails" *ngFor="let player of pooler.DivisionStandings; let i = index">
             <div class="align-center">{{ i + 1 }}</div>
-            <div>{{player.PlayerDisplayName}}</div>
+            <div *ngIf="addDropPeriod===1">{{player.PlayerName}}</div>
+            <div *ngIf="addDropPeriod===2">{{player.PlayerDisplayName}}</div>
             <div class="align-right">{{player.Earnings | currency:'USD':true:'1.0-0'}}</div>
             <div> </div>
           </div>

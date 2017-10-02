@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser'
 import { Router } from '@angular/router'
 
 import { DataService } from '../../services/data.service';
-import { REDIRECT_ON } from '../../config';
+import * as config from '../../config';
 
 
 @Component({
@@ -22,13 +22,15 @@ export class StandingsComponent implements OnInit {
   closeChevron: string = 'fa fa-chevron-down';
 
   loading = false;
+  
+  addDropPeriod = config.ADD_DROP_PERIOD;
 
 
   constructor(private _dataService: DataService, private _titleService: Title, private router: Router) { }
 
   ngOnInit() {
 
-    if (REDIRECT_ON) this.router.navigate(['./home']);
+    if (config.REDIRECT_ON) this.router.navigate(['./home']);
 
 
     this._titleService.setTitle('Standings | the golf pool');
