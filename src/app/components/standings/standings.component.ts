@@ -22,7 +22,7 @@ export class StandingsComponent implements OnInit {
   closeChevron: string = 'fa fa-chevron-down';
 
   loading = false;
-  
+
   addDropPeriod = config.ADD_DROP_PERIOD;
 
 
