@@ -17,8 +17,7 @@
       <br>
       <h4 class="h5 text-white g-font-weight-400 align-center g-bg-primary g-mb-20">updated: {{lastUpdate}}</h4>
 
-      <div class="form-group g-mb-25">
-        <!-- <label for="exampleSelect1">Example select</label> -->
+      <div class="form-group g-mb-25">       
         <select class="form-control rounded-0" [(ngModel)]="divisionIdSelected" (ngModelChange)="onDivisionChange($event)">
         <option *ngFor="let d of divisions" [ngValue]="d.DivisionId">{{d.Name}}</option>
     </select>
