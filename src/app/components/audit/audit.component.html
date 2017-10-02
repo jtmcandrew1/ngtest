@@ -1,0 +1,64 @@
+<!-- General Controls -->
+
+<div class="container"> 
+
+
+  <button class="btn btn-md u-btn-primary rounded-0" (click)="triggerSeasonResults()">Scrape</button>
+
+  <button class="btn btn-md u-btn-primary rounded-0" (click)="verifySeasonResults()">Verify</button>
+
+  <h3>{{status}}</h3>
+
+</div>
+
+
+<div *ngIf="auditResults.length > 0">
+  <table class='gradienttable'>
+    <tr>
+      <th>
+        Id
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Pool Results
+      </th>
+
+      <th>
+        PGA Results
+      </th>
+
+      <th>
+        Diff
+        </th>
+
+    </tr>
+
+    <tr *ngFor="let result of auditResults">
+      <td>
+        {{result.PlayerRankId}}
+      </td>
+      <td>
+        {{result.PlayerName}}
+      </td>
+      <td>
+        {{result.ResultEarnings | currency:'USD':true:'1.0-0'}}
+      </td>
+
+      <td>
+        {{result.SeasonEarnings | currency:'USD':true:'1.0-0'}}
+      </td>
+
+      <td>
+        {{result.EarningsDiff | currency:'USD':true:'1.0-0'}}
+      </td>
+
+    </tr>
+
+
+  </table>
+
+</div>
+
+<!-- End General Controls -->

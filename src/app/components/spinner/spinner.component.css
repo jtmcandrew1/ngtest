@@ -1,0 +1,77 @@
+.spinner{
+    
+    width:50px;
+    height:50px;
+    z-index:99; 
+    border: 5px solid #ccc;
+    /* border-top-color:#ff6a00; */
+    border-top-color:green;
+    border-radius: 100%;
+   
+    -webkit-animation: round 0.6s ease-in infinite; 
+    -moz-animation: round 0.6s ease-in infinite;    
+    -o-animation: round 0.6s ease-in infinite;
+    animation: round 0.6s ease-in infinite;  
+}
+
+@-webkit-keyframes round{
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}  
+}
+
+@-moz-keyframes round{
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}  
+}
+
+@-o-keyframes round{
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}  
+}
+
+@keyframes round{
+    from{transform: rotate(0deg)}
+    to{transform: rotate(360deg)}   
+}
+
+.spinnerDelay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;    
+    left: 0;  
+    width:52px;
+    height:52px;  
+    z-index:98; 
+    background-color: transparent;
+    margin: auto;
+   
+    -webkit-animation: 1s ease 0s normal forwards 1 fadein;
+    -moz-animation: 1s ease 0s normal forwards 1 fadein;
+    -o-animation: 1s ease 0s normal forwards 1 fadein;
+    animation: 1s ease 0s normal forwards 1 fadein;
+}
+
+@-webkit-keyframes fadein{
+    0% { opacity:0; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-moz-keyframes fadein{
+    0% { opacity:0; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-o-keyframes fadein{
+    0% { opacity:0; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@keyframes fadein{
+    0% { opacity:0; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}

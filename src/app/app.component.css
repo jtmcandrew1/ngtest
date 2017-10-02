@@ -1,0 +1,31 @@
+
+
+/* a:link {
+    color: darkgreen;
+    font-weight: bold;
+} */
+
+
+a:visited {
+    color: darkgreen;
+}
+
+
+a:hover {
+    color: lightgreen;
+}
+
+
+a:active {
+    color: blue;
+}
+
+.align-center{
+    text-align: center;
+}
+
+.align-right{
+    text-align: right;
+    padding-right: 8px;
+}
+

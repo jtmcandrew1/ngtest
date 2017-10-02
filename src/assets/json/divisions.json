@@ -1,0 +1,40 @@
+ [
+      {
+        "Name": "Season Total",
+        "DivisionId": 9        
+      },
+      {
+       "Name": "Division 1",
+        "DivisionId": 1  
+      },
+        {
+       "Name": "Division 2",
+        "DivisionId": 2  
+      },
+        {
+       "Name": "Division 3",
+        "DivisionId": 3  
+      },
+        {
+       "Name": "Division 4",
+        "DivisionId": 4  
+      },
+      {       
+       "Name": "The Masters",
+       "DivisionId": 5  
+      },
+     
+       {
+       "Name": "US Open",
+       "DivisionId": 6  
+      },
+      {
+       "Name": "British Open",
+        "DivisionId": 7  
+      },
+      {
+       "Name": "PGA Championship Open",
+        "DivisionId": 8 
+      }
+    ]
+  

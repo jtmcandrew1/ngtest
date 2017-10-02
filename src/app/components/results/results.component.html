@@ -1,0 +1,37 @@
+<!-- General Controls -->
+
+<div class="container">
+
+    <div class="form-group g-mb-25">
+        <!-- <label for="exampleSelect1">Example select</label> -->
+        <select class="form-control rounded-0" [(ngModel)]="selectedEvent">
+       <option *ngFor="let e of events" [ngValue]="e">{{e.EventName}}</option>
+    </select>
+      </div>
+  
+    <div class="form-group g-mb-25">
+      <!-- <label for="exampleTextarea">Example textarea</label> -->
+      <textarea [(ngModel)]="eventEarnings" class="form-control form-control-md rounded-0" id="exampleTextarea" rows="20"></textarea>
+    </div> 
+  
+  
+    <button class="btn btn-md u-btn-primary rounded-0" (click)="updateEventResults()">Submit</button>
+
+    <h3>{{status}}</h3>
+
+    <h3>{{selectedEvent.EventId}}</h3>
+
+    <a routerLink="/audit"><button class="btn btn-primary">Audit</button></a>
+    
+  
+  </div>
+  
+  
+  <div>   
+
+    
+      
+  
+  </div>
+  
+  <!-- End General Controls -->

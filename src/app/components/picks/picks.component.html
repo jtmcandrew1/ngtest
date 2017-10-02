@@ -1,0 +1,151 @@
+<div class="container">
+
+    <div *ngIf="!success; else successTemplate">
+
+        <form [formGroup]="pickForm" class="g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30">
+            <h3 class="g-mb-10">Pooler Info</h3>
+            <div class="form-group row g-mb-25">
+                <label for="example-text-input" class="col-md-2 col-form-label">Name</label>
+                <div class="col-md-10">
+                    <input class="form-control form-control-md rounded-0" type="text" id="name" formControlName="name" placeholder="enter first and last name">
+                    <div class="alert col-5 col-md-3" *ngIf="!pickForm.controls['name'].valid && pickForm.controls['name'].touched">
+                        Name is required.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group row g-mb-25">
+                <label for="example-email-input" class="col-md-2 col-form-label">Email</label>
+                <div class="col-md-10">
+                    <input class="form-control form-control-md rounded-0" type="email" formControlName="email" id="email" placeholder="enter valid email address">
+                    <div class="alert col-5 col-md-3" *ngIf="!pickForm.controls['email'].valid && pickForm.controls['email'].touched">
+                        Valid email is required.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group row g-mb-25">
+                <label for="example-text-input" class="col-md-2 col-form-label">Comments</label>
+                <div class="col-md-10">
+                    <textarea class="form-control form-control-md rounded-0" formControlName="comments" id="comments" rows="6"></textarea>
+                </div>
+            </div>
+
+
+
+            <div style="opacity:0">
+                <input type="checkbox" disabled="true" [(ngModel)]="valid" id="valid" formControlName="valid">
+            </div>
+
+
+
+            <h3>Make Your Picks</h3>
+
+            <div class="row align-items-stretch">
+                <div class="col-md-4 g-mb-0">
+
+                    <div class="input-group">
+                        <input type="text" (keyup)="filterPlayers()" (input)="filterPlayers()" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}"
+                            class="form-control form-control-md rounded-0" placeholder="enter filter text...">
+                        <span class="input-group-btn">
+                <button class="btn u-btn-default rounded-0" (click)="clearSearchFilter()" 
+                      type="button">Clear Filter</button>
+              </span>
+                    </div>
+
+
+                    <h4 class="h6 g-font-weight-600 text-uppercase g-mt-10 g-mb-10">Player List ({{playersFiltered.length}})</h4>
+                    <!-- Article -->
+
+                    <article style="height: 340px; overflow-y: scroll;" class="h-80 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-px-10">
+                        <div>
+
+                            <div class="player" *ngFor="let player of playersFiltered" (click)="addPlayerToPickedList(player)">
+                                <i class="fa fa-plus-square-o fa-lg g-pr-5"></i> {{player.PlayerNameAndRank}}
+
+                            </div>
+                        </div>
+
+                    </article>
+                    <!-- End Article -->
+                </div>
+
+                <div class="col-md-4 g-mb-0">
+                    <div style="height:40px" class="input-group">
+
+                    </div>
+                    <!-- Article -->
+                    <h4 class="h6 g-font-weight-600 text-uppercase g-mt-10 g-mb-10">Selected Players ({{playersPicked.length}})</h4>
+                    <article style="height: 340px; overflow-y: scroll;" class="h-80 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-px-10">
+
+                        <div>
+                            <div class="player" *ngFor="let player of playersPicked" (click)="removePlayerFromPickedList(player)">
+
+                                <i class="fa fa-minus-square-o fa-lg g-pr-5"></i> {{player.PlayerNameAndRank}}
+
+                            </div>
+                        </div>
+
+
+                    </article>
+                    <div *ngIf="playersPicked.length != 0">
+                        <!-- <h4 class="h6 g-font-weight-600 text-uppercase g-mt-10 g-mb-10">Clear All</h4> -->
+                        <a class="btn btn-default g-font-weight-600 text-uppercase" (click)="clearPlayerPickedList()">
+                <i class="fa fa-trash-o fa-lg"></i> Clear Selected</a>
+                    </div>
+                    <!-- End Article -->
+
+                </div>
+
+                <div class="col-md-4 g-mb-0">
+                    <!-- Article -->
+
+                    <button type="button" [disabled]="!pickForm.valid" (click)="addPicks(pickForm.value)" class="btn btn-md u-btn-primary rounded-0">Submit</button>
+
+                    <ul *ngIf="valid">
+                        <li class="error" *ngIf="!pickForm.controls['name'].valid"> Pooler name is required.</li>
+                        <li class="error" *ngIf="!pickForm.controls['email'].valid"> Valid pooler email is required.</li>
+                    </ul>
+
+                    <ul *ngFor="let error of errorList">
+                    <li class="error">
+                        {{error}}
+                    </li>
+                    </ul>
+
+                    <!-- <div class="alert col-5 col-md-3" *ngIf="!pickForm.controls['name'].valid && pickForm.controls['name'].touched">
+            Name is required.
+          </div> 
+
+          <div class="alert col-5 col-md-3" *ngIf="!pickForm.controls['email'].valid && pickForm.controls['email'].touched">
+            Valid email is required.
+          </div>  -->
+
+
+
+                </div>
+            </div>
+
+        </form>
+        <!-- <div class="input-group">
+      <input type="text" (keyup)="filterPlayers()" (input)="filterPlayers()" [(ngModel)]="searchText"
+          class="form-control form-control-md rounded-0" placeholder="enter filter text...">
+      <span class="input-group-btn">
+      <button class="btn u-btn-default rounded-0" (click)="clearSearchFilter()" 
+            type="button">Clear Filter</button>
+    </span>
+    </div> -->
+    </div>
+
+</div>
+
+
+<ng-template #successTemplate>
+    <div class="g-mt-80">
+        <h3>Thanks, {{this.name}}, your picks have been received.</h3>
+        <h3>You should receive a confirmation email shortly.</h3>
+        <h4><a routerLink="/">Click here to return to home page.</a></h4>
+    </div>
+</ng-template>

@@ -1,0 +1,290 @@
+<section class="g-bg-size-cover g-bg-pos-center g-bg-cover g-py-50 g-mb-20" style="background-image: url(../assets/img/golf/sawgrass.jpg);">
+  <div class="container g-bg-cover__inner">
+    <header class="g-mb-20">
+      <!-- <h3 class="h5 g-font-weight-300 g-mb-5">Breadcrumbs</h3> -->
+      <h2 class="h1 g-font-weight-500 text-uppercase g-color-white">Players
+      </h2>
+    </header>
+  </div>
+</section>
+
+<!-- <div class="spinnerDelay" *ngIf="loading">
+  <div id="spinner"></div>
+</div> -->
+
+<app-spinner [loading] = "loading"></app-spinner>
+
+
+<div class="container">
+  <!-- Nav tabs -->
+  <ul class="nav nav-justified u-nav-v1-2 u-nav-primary u-nav-rounded-5 g-mb-20" role="tablist" data-target="nav-1-2-primary-hor-justified"
+    data-tabs-mobile-type="slide-up-down" data-btn-classes="btn btn-md btn-block u-btn-outline-primary g-mb-20">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#nav-1-2-primary-hor-justified--1" role="tab">Player Counts</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#nav-1-2-primary-hor-justified--2" role="tab">Player Earnings</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#nav-1-2-primary-hor-justified--4" role="tab">More...</a>
+    </li>
+  </ul>
+  <!-- End Nav tabs -->
+
+  <!-- Tab panes -->
+  <div id="nav-1-2-primary-hor-justified" class="tab-content">
+    <div class="tab-pane fade show active" id="nav-1-2-primary-hor-justified--1" role="tabpanel">
+      <div class="wrapper-counts">
+        <div class="player-counts">
+          <!-- Default Outline Panel-->
+          <div class="card card-outline-success rounded-0" *ngFor="let player of playerCounts">
+            <div class="card-header h5 text-darkgray g-bg-gray-lineargradient g-brd-transparent rounded-0 player-count" (click)="player.Open = !player.Open">
+              <!-- <i class="fa fa-tasks g-font-size-default g-mr-5"></i>  -->
+
+              <div>
+                <h6>{{player.PlayerName}}</h6>
+              </div>
+              <div class="align-right">
+                <h6>{{player.PlayerCount}}</h6>
+              </div>
+              <div class="align-center">
+                <h6><i [class]="player.Open ? openChevron : closeChevron"></i></h6>
+              </div>
+
+            </div>
+            <div class="card-block player-count-details" *ngIf="player.Open">
+              <div class="h6" *ngFor="let pooler of player.PoolerSelections">
+                <div>{{pooler.Pooler.PoolerName}}</div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- End Default Outline Panel-->
+
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="nav-1-2-primary-hor-justified--2" role="tabpanel">
+      <div class="form-group g-mb-25 center-select">
+        <!-- <label for="exampleSelect1">Example select</label> -->
+        <select class="form-control rounded-0" [(ngModel)]="poolOnly" (ngModelChange)="onPoolOnlyChange($event)">
+                <option value="0">All Tournaments</option>
+                <option value="1">Pool Tournaments Only</option>               
+        </select>
+      </div>
+      <div class="wrapper-results">
+        <div class="player-results">
+          <!-- Default Outline Panel-->
+          <div class="card card-outline-success rounded-0" *ngFor="let player of playerResults">
+            <div class="card-header h5 text-darkgray g-bg-gray-lineargradient g-brd-transparent rounded-0 player-result" (click)="player.Open = !player.Open">
+              <!-- <i class="fa fa-tasks g-font-size-default g-mr-5"></i>  -->
+
+              <div>
+                <h6>{{player.PlayerName}}</h6>
+              </div>
+              <div class="align-right">
+                <h6>{{player.ResultsTotal | currency:'USD':true:'1.0-0'}}</h6>
+              </div>
+              <div class="align-center">
+                <h6><i [class]="player.Open ? openChevron : closeChevron"></i></h6>
+              </div>
+
+            </div>
+            <div class="card-block" *ngIf="player.Open">
+              <div class="h6 player-result-details" *ngFor="let result of player.Results">
+                <div>{{result.Event.EventName}}</div>
+                <div class="align-right">{{result.Earnings | currency:'USD':true:'1.0-0'}}</div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- End Default Outline Panel-->
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="tab-pane fade" id="nav-1-2-primary-hor-justified--4" role="tabpanel">
+
+      <h3>Who's Got 'Em</h3>
+
+      <div class="row align-items-stretch">
+        <div class="col-md-4 g-mb-0">
+          <h4 class="h6 g-font-weight-600 text-uppercase g-mt-10 g-mb-10">Player List</h4>
+          <!-- Article -->
+
+          <article style="height: 330px; overflow-y: scroll;" class="h-80 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-pa-10">
+            <!-- <div class="g-flex-middle-item"> -->  
+
+              <div>
+
+                 <div *ngFor="let player of playersAll" (click)="addPlayerToWhoList(player)">
+                    <i class="fa fa-plus-square-o fa-lg g-pr-5"></i>
+                    
+                    {{player.PlayerName}}
+                       
+                    
+                </div>
+              </div>
+
+          </article>
+          <!-- End Article -->
+        </div>
+
+        <div class="col-md-4 g-mb-0">
+          <!-- Article -->
+          <h4 class="h6 g-font-weight-600 text-uppercase g-mt-10 g-mb-10">Selected Players</h4>
+          <article *ngIf="playersWho.length != 0"  class="h-80 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-pa-10">
+            <!-- <div class="g-flex-middle-item"> -->
+            
+              <div>
+                <div *ngFor="let player of playersWho" (click)="removePlayerFromWhoList(player)">
+                  
+                 
+                    <i class="fa fa-minus-square-o fa-lg g-pr-5"></i>
+                 
+                 {{player.PlayerName}}
+                    
+                 
+                </div>
+              </div>
+
+            
+          </article>
+          <div *ngIf="playersWho.length != 0">
+            <!-- <h4 class="h6 g-font-weight-600 text-uppercase g-mt-10 g-mb-10">Clear All</h4> -->
+            <a class="btn btn-default g-font-weight-600 text-uppercase" (click)="clearWhoPlayerList()">
+                <i class="fa fa-trash-o fa-lg"></i> Clear Selected</a>
+          </div>
+           <!-- End Article -->
+        </div>
+
+        <div class="col-md-4 g-mb-0">
+          <!-- Article -->
+          <h4 class="h6 g-font-weight-600 text-uppercase g-mt-10 g-mb-10">Who's Got 'Em</h4>
+          <article style="height: 330px; overflow-y: scroll;" class="h-80 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-pa-10">
+            <!-- <div class="g-flex-middle-item"> -->
+
+            <div>            
+               
+                  <div *ngFor="let pooler of poolersWho">
+                    {{pooler.PoolerName}}
+                  </div>  
+
+            </div>           
+          </article>
+          <!-- End Article -->
+          <h4 class="h6 g-font-weight-600 text-uppercase g-mt-10 g-mb-10">Count: {{poolersWho.length}}</h4>
+        </div>
+      </div>
+
+
+
+      <div g-mt-20>
+        <br/>
+        <h3>Compare & Contrast</h3>
+
+        <div class="row align-items-stretch">
+          <div class="col-md-4 g-mb-0">
+            <!-- Article -->
+            <article class="h-80 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-pa-10">
+              <!-- <div class="g-flex-middle-item"> -->
+              <div>
+                <!-- <h4 class="h6 g-font-weight-600 text-uppercase g-mb-10">Pooler 1</h4> -->
+                <div class="form-group g-mb-10">
+                  <!-- <label for="exampleSelect1">Example select</label> -->
+                  <select class="form-control rounded-0" [(ngModel)]="poolerCompare1" (ngModelChange)="onPoolerCompareChange($event)">
+                         <option *ngFor="let pooler of poolers" [ngValue]="pooler">{{pooler.PoolerName}}</option>
+                      </select>
+                </div>
+                <div>
+                  <ul>
+                    <li *ngFor="let player of pooler1Players">
+                      {{player.PlayerName}}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <!-- End Article -->
+          </div>
+
+          <div class="col-md-4 g-mb-0">
+            <!-- Article -->
+            <article class="h-80 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-pa-10">
+              <!-- <div class="g-flex-middle-item"> -->
+              <div>
+                <!-- <h4 class="h6 g-font-weight-600 text-uppercase g-mb-10">Pooler 2</h4> -->
+                <div class="form-group g-mb-10">
+                  <!-- <label for="exampleSelect1">Example select</label> -->
+                  <select class="form-control rounded-0" [(ngModel)]="poolerCompare2" (ngModelChange)="onPoolerCompareChange($event)">
+                         <option *ngFor="let pooler of poolers" [ngValue]="pooler">{{pooler.PoolerName}}</option>
+                      </select>
+                </div>
+                <div>
+                  <ul>
+                    <li *ngFor="let player of pooler2Players">
+                      {{player.PlayerName}}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+            <!-- End Article -->
+          </div>
+
+          <div class="col-md-4 g-mb-0">
+            <!-- Article -->
+            <article class="h-80 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-pa-10">
+              <!-- <div class="g-flex-middle-item"> -->
+              <div>
+                <h4 class="h6 g-font-weight-600 text-uppercase g-mt-10 g-mb-10">Players in Common</h4>
+                <div>
+                  <ul>
+                    <li *ngFor="let player of commonPlayers">
+                      {{player.PlayerName}}
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </article>
+            <!-- End Article -->
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <!-- End Tab panes -->
+
+</div>
+
+<!-- JS Unify -->
+<script src="../assets/js/components/hs.tabs.js"></script>
+
+<!-- JS Plugins Init. -->
+<script>
+  ; (function ($) {
+    'use strict';
+    $(document).on('ready', function () {
+      // Tabs
+      $.HSCore.components.HSTabs.init('[role="tablist"]');
+    });
+
+    $(window).on('resize', function () {
+      setTimeout(function () {
+        $.HSCore.components.HSTabs.init('[role="tablist"]');
+      }, 200);
+    });
+  })(jQuery);
+
+</script>

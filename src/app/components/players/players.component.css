@@ -1,0 +1,131 @@
+.wrapper-counts{
+    display: grid;
+    grid-template-columns: 1fr 9fr 1fr;
+    grid-template-areas:     
+       ". player-counts ."    
+  }
+  
+  @media only screen and (min-width: 800px)  {
+      .wrapper-counts {
+         grid-template-columns: 1fr 5fr 1fr;
+          grid-template-areas:
+      ". player-counts ."
+         
+      }
+  }  
+
+  @media only screen and (min-width: 1200px)  {
+    .wrapper-counts {
+       grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+    ". player-counts ."
+       
+    }
+  }
+  
+  .player-counts{
+      grid-area: player-counts; 
+  }
+  
+  
+  .player-count{
+      /* width: 340px; */
+      display: grid;
+      grid-template-columns: 3fr 1fr 1fr;    
+      /* grid-auto-rows: minxax(2px, auto);  */
+      /* background-color:  #edede4; */   
+  
+  }
+  
+  
+  
+  .player-count-details{  
+      display: grid;
+      grid-template-columns: 1fr       
+  
+  }
+
+  @media only screen and (min-width: 600px)  {
+  .player-count-details{  
+    
+    grid-template-columns: repeat(2, 180px ) ;  
+
+    }
+  }
+
+  @media only screen and (min-width: 900px)  {
+    .player-count-details{  
+      
+      grid-template-columns: repeat(3, 180px ) ;  
+  
+      }
+    }
+
+  
+
+
+
+  .wrapper-results{
+    display: grid;
+    grid-template-columns: 1fr 9fr 1fr;
+    grid-template-areas:     
+       ". player-results ."    
+  }
+  
+  @media only screen and (min-width: 800px)  {
+      .wrapper-results {
+         grid-template-columns: 1fr 5fr 1fr;
+          grid-template-areas:
+      ". player-results ."
+         
+      }
+  }  
+
+  @media only screen and (min-width: 1200px)  {
+    .wrapper-results {
+       grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+    ". player-results ."
+       
+    }
+}  
+  
+  .player-results{
+      grid-area: player-results; 
+  }
+  
+  
+  .player-result{
+      /* width: 340px; */
+      display: grid;
+      grid-template-columns: 4fr 2fr 1fr;    
+      /* grid-auto-rows: minxax(2px, auto);  */
+      /* background-color:  #edede4; */   
+  
+  }
+  
+  
+  
+  .player-result-details{  
+      display: grid;
+      grid-template-columns: 4fr 2fr 0fr
+      /* grid-template-columns: 1fr 10fr 6fr  1fr;     */
+      /* grid-auto-rows: minxax(50px, auto);     */
+  
+  }
+  @media only screen and (min-width: 700px)  {
+  .player-result-details{  
+    
+    grid-template-columns: 5fr 2fr 1fr;
+    /* grid-template-columns: 1fr 10fr 6fr  1fr;     */
+    /* grid-auto-rows: minxax(50px, auto);     */
+
+    }
+  }
+
+  .center-select{
+    width:50%; 
+    text-align:center; 
+    margin: 0 auto
+
+   }

@@ -1,0 +1,143 @@
+
+
+<section class="g-bg-size-cover g-bg-pos-center g-bg-cover g-py-50 g-mb-20" style="background-image: url(../assets/img/golf/saint-andrews.jpg);">
+  <div class="container g-bg-cover__inner">
+    <header class="g-mb-20">
+      <!-- <h3 class="h5 g-font-weight-300 g-mb-5">Breadcrumbs</h3> -->
+      <h2 class="h1 g-font-weight-300 text-uppercase g-color-white">Tournaments
+      </h2>
+    </header>
+  </div>
+</section>
+
+
+
+<button
+class="btn btn-primary btn-margin"
+*ngIf="!_authService.isAuthenticated()"
+(click)="_authService.login()">
+  Log In
+</button>
+
+<button
+class="btn btn-primary btn-margin"
+*ngIf="_authService.isAuthenticated()"
+(click)="_authService.logout()">
+  Log Out
+</button>
+
+
+
+<div class="container content"> 
+
+  <div class="row">
+    <div class="col-md-6 g-mb-20">
+      <!-- Article -->
+      <article class="h-100 g-pos-rel g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-mt-20 g-pt-20 g-px-30">
+        <!-- Article Title -->
+        <h4 class="g-color-black g-font-size-18 g-font-weight-700">Division 1</h4>
+        <!-- End Article Title -->
+
+        <hr class="g-brd-2 g-mt-15 g-mb-7">
+
+        <table>
+          <tr *ngFor="let item of events1">
+            <td class="name-width">
+              {{item.EventName}}
+            </td>
+            <td class="date-width">
+              {{item.EventDates}}
+            </td>
+          </tr>
+        </table>
+
+
+      </article>
+      <!-- End Article -->
+    </div>
+
+
+
+
+    <div class="col-md-6 g-mb-20">
+      <!-- Article -->
+      <article class="h-100 g-pos-rel g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-mt-20 g-pt-20 g-px-30">
+        <!-- Article Title -->
+        <h4 class="g-color-black g-font-size-18 g-font-weight-700">Division 2</h4>
+        <!-- End Article Title -->
+
+        <hr class="g-brd-2 g-mt-15 g-mb-7">
+
+        <table>
+          <tr *ngFor="let item of events2">
+            <td class="name-width">
+              {{item.EventName}}
+            </td>
+            <td class="date-width">
+              {{item.EventDates}}
+            </td>
+          </tr>
+        </table>
+
+
+      </article>
+      <!-- End Article -->
+    </div>   
+
+
+    <div class="col-md-6 g-mb-10">
+      <!-- Article -->
+      <article class="h-100 g-pos-rel g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-mt-20 g-pt-20 g-px-30">
+        <!-- Article Title -->
+        <h4 class="g-color-black g-font-size-18 g-font-weight-700">Division 3</h4>
+        <!-- End Article Title -->
+
+        <hr class="g-brd-2 g-mt-15 g-mb-7">
+
+        <table>
+          <tr *ngFor="let item of events3">
+            <td class="name-width">
+              {{item.EventName}}
+            </td>
+            <td class="date-width">
+              {{item.EventDates}}
+            </td>
+          </tr>
+        </table>
+
+
+      </article>
+      <!-- End Article -->
+    </div>
+
+
+    <div class="col-md-6 g-mb-10">
+      <!-- Article -->
+      <article class="h-100 g-pos-rel g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-mt-20 g-pt-20 g-px-30">
+        <!-- Article Title -->
+        <h4 class="g-color-black g-font-size-18 g-font-weight-700">Division 4</h4>
+        <!-- End Article Title -->
+
+        <hr class="g-brd-2 g-mt-15 g-mb-7">
+
+        <table>
+          <tr *ngFor="let item of events4">
+            <td class="name-width">
+              {{item.EventName}}
+            </td>
+             <td class="date-width">
+              {{item.EventDates}}
+            </td>
+          </tr>
+        </table>
+
+
+      </article>
+      <!-- End Article -->
+    </div>
+  </div>
+
+
+
+
+</div>

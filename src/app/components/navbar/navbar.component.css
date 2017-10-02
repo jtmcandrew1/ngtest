@@ -1,0 +1,18 @@
+.appLogoText
+{    
+    /* color:#008040;  */
+    /* color: #009999; */
+    /* color: #009900; */
+    font-weight:bold;
+    font-size: 28px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-style: italic;
+}
+
+.appLogoPosition
+{
+   float:left; 
+    /* margin-top:40px; 
+    margin-left:5px;  */
+    width:300px;
+}

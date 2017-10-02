@@ -1,0 +1,226 @@
+<section class="g-bg-size-cover g-bg-pos-center g-bg-cover g-py-50 g-mb-20" style="background-image: url(../assets/img/golf/whistling-straits.jpg);">
+  <div class="container g-bg-cover__inner">
+    <header class="g-mb-20">
+      <!-- <h3 class="h5 g-font-weight-300 g-mb-5">Breadcrumbs</h3> -->
+      <h2 class="h1 g-font-weight-300"> &nbsp;
+        
+      </h2>
+    </header>
+  </div>
+</section>
+
+
+<div class="container">
+  <div class="row g-px-30">
+    <!-- Info Image -->
+    <div class="col-lg-5 g-min-height-360 g-bg-size-cover g-bg-pos-top" style="background-image: url('../../assets/img/golf/arnie.png');"></div>
+    <!-- End Info Image -->
+
+    <div class="col-lg-7 g-bg-white-light-v1 g-pt-10 g-pb-10 g-px-40">
+      <header class="text-uppercase g-mb-35">
+        <div class="g-mb-30">
+
+          <!-- <h2 class="h2 g-color-black g-font-weight-400 mb-0">Winners</h2> -->
+          <h2 class="h3 u-heading-v2__title text-uppercase g-font-weight-400">Winners</h2>
+
+        </div>
+        <div class="g-width-70 g-brd-bottom g-brd-2 g-brd-primary"></div>
+      </header>
+
+      <div class="form-group g-mb-25">
+        <!-- <label for="exampleSelect1">Example select</label> -->
+        <select class="form-control rounded-0" [(ngModel)]="yearSelected" (ngModelChange)="onYearChange($event)">
+       <option *ngFor="let y of years" [ngValue]="y">{{y}}</option>
+    </select>
+      </div>
+
+
+
+      <!-- <p class="g-color-white-opacity-0_7 g-mb-65">This is where we sit down, grab a cup of coffee and dial in the details. Understanding the task at hand and ironing out the wrinkles is key.</p> -->
+
+      <div class="row align-items-stretch">
+        <div class="col-sm-6 g-mb-20">
+          <!-- Article -->
+          <article class="h-100 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-pa-20">
+            <div class="g-flex-middle-item">
+              <h4 class="h6 g-font-weight-600 text-uppercase g-mb-10">Division 1</h4>
+              <p class="mb-0">
+                1. {{winners1.First}} <br> 2. {{winners1.Second}} <br> 3. {{winners1.Third}} <br>
+              </p>
+            </div>
+          </article>
+          <!-- End Article -->
+        </div>
+
+        <div class="col-sm-6 g-mb-20">
+          <!-- Article -->
+          <article class="h-80 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-pa-20">
+            <div class="g-flex-middle-item">
+              <h4 class="h6 g-font-weight-600 text-uppercase g-mb-10">Division 2</h4>
+              <p class="mb-0">
+                1. {{winners2.First}} <br> 2. {{winners2.Second}} <br> 3. {{winners2.Third}} <br>
+              </p>
+            </div>
+          </article>
+          <!-- End Article -->
+        </div>
+      </div>
+
+      <div class="row align-items-stretch">
+        <div class="col-sm-6 g-mb-20">
+          <!-- Article -->
+          <article class="h-100 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-pa-20">
+            <div class="g-flex-middle-item">
+              <h4 class="h6 g-font-weight-600 text-uppercase g-mb-10">Division 3</h4>
+              <p class="mb-0">
+                1. {{winners3.First}} <br> 2. {{winners3.Second}} <br> 3. {{winners3.Third}} <br>
+              </p>
+            </div>
+          </article>
+          <!-- End Article -->
+        </div>
+
+        <div class="col-sm-6 g-mb-20">
+          <!-- Article -->
+          <article class="h-100 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-pa-20">
+            <div class="g-flex-middle-item">
+              <h4 class="h6 g-font-weight-600 text-uppercase g-mb-10">Division 4</h4>
+              <p class="mb-0">
+                1. {{winners4.First}} <br> 2. {{winners4.Second}} <br> 3. {{winners4.Third}} <br>
+              </p>
+            </div>
+          </article>
+          <!-- End Article -->
+        </div>
+      </div>
+
+
+      <div class="row align-items-stretch">
+        <div class="col-sm-6 g-mb-20">
+          <!-- Article -->
+          <article class="h-100 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-pa-20">
+            <div class="g-flex-middle-item">
+              <h4 class="h6 g-font-weight-600 text-uppercase g-mb-10">The Masters</h4>
+              <p class="mb-0">
+                1. {{winners5.First}} <br> 2. {{winners5.Second}} <br> 3. {{winners5.Third}} <br>
+              </p>
+            </div>
+          </article>
+          <!-- End Article -->
+        </div>
+
+        <div class="col-sm-6 g-mb-20">
+          <!-- Article -->
+          <article class="h-100 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-pa-20">
+            <div class="g-flex-middle-item">
+              <h4 class="h6 g-font-weight-600 text-uppercase g-mb-10">The US Open</h4>
+              <p class="mb-0">
+                1. {{winners6.First}} <br> 2. {{winners6.Second}} <br> 3. {{winners6.Third}} <br>
+              </p>
+            </div>
+          </article>
+          <!-- End Article -->
+        </div>
+      </div>
+
+
+      <div class="row align-items-stretch">
+        <div class="col-sm-6 g-mb-20">
+          <!-- Article -->
+          <article class="h-100 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-pa-20">
+            <div class="g-flex-middle-item">
+              <h4 class="h6 g-font-weight-600 text-uppercase g-mb-10">The British Open</h4>
+              <p class="mb-0">
+                1. {{winners7.First}} <br> 2. {{winners7.Second}} <br> 3. {{winners7.Third}} <br>
+              </p>
+            </div>
+          </article>
+          <!-- End Article -->
+        </div>
+
+        <div class="col-sm-6 g-mb-20">
+          <!-- Article -->
+          <article class="h-100 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-pa-20">
+            <div class="g-flex-middle-item">
+              <h4 class="h6 g-font-weight-600 text-uppercase g-mb-10">PGA Championship</h4>
+              <p class="mb-0">
+                1. {{winners8.First}} <br> 2. {{winners8.Second}} <br> 3. {{winners8.Third}} <br>
+              </p>
+            </div>
+          </article>
+          <!-- End Article -->
+        </div>
+      </div>
+
+
+      <div class="row align-items-stretch">
+        <div class="col-sm-6 g-mb-30">
+          <!-- Article -->
+          <article class="h-100 g-flex-middle g-brd-left g-brd-2 g-brd-primary g-brd-black--hover g-bg-gray-light-v5 g-pa-20">
+            <div class="g-flex-middle-item">
+              <h4 class="h6 g-font-weight-600 text-uppercase g-mb-10">Season Total</h4>
+              <p class="mb-0">
+                1. {{winners9.First}} <br> 2. {{winners9.Second}} <br> 3. {{winners9.Third}} <br>
+              </p>
+            </div>
+          </article>
+          <!-- End Article -->
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <!-- End Info Blocks -->
+
+  <div class="row g-px-40 g-py-40">
+    <div class="col-lg-6 g-mb-50 g-mb-0--lg">
+      <header class="u-heading-v2-3--bottom g-brd-primary g-mb-20">
+        <h2 class="h3 u-heading-v2__title text-uppercase g-font-weight-400">Golf News</h2>
+      </header>
+
+
+
+      <ul class="list-unstyled g-color-gray-dark-v4">
+        <li class="d-flex g-mb-10" *ngFor="let item of rssFeeds">
+          <i class="fa fa-external-link g-color-primary g-mt-5 g-mr-10"></i>
+          <a href="{{item.Url}}"> {{item.Title}} </a>
+        </li>
+
+      </ul>
+    </div>
+
+    <div class="col-lg-6 g-mb-50 g-mb-0--lg">
+      <header class="u-heading-v2-3--bottom g-brd-primary g-mb-20">
+        <h2 class="h3 u-heading-v2__title text-uppercase g-font-weight-400">Links</h2>
+      </header>
+
+
+
+      <ul class="list-unstyled g-color-gray-dark-v4">
+        <li class="d-flex g-mb-10">
+          <i class="fa fa-external-link g-color-primary g-mt-5 g-mr-10"></i>
+          <a href="http://www.thegolfpool.net/altStandings.aspx"> Alternate Standings </a>
+        </li>
+
+        <li class="d-flex g-mb-10">
+          <i class="fa fa-external-link g-color-primary g-mt-5 g-mr-10"></i>
+          <a href="http://www.pgatour.com"> PGATOUR Site </a>
+        </li>
+
+        <li class="d-flex g-mb-10">
+          <i class="fa fa-external-link g-color-primary g-mt-5 g-mr-10"></i>
+          <a href="http://www.pgatour.com/leaderboard.html"> PGATOUR Leaderboard </a>
+        </li>
+
+        <li class="d-flex g-mb-10">
+          <i class="fa fa-external-link g-color-primary g-mt-5 g-mr-10"></i>
+          <a href="http://www.espn.com/golf/"> ESPN Golf </a>
+        </li>
+
+      </ul>
+    </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,16 @@
+.name-width{
+    width: 300px;
+}
+
+.date-width{
+    width: 130px;
+}
+
+.division-header-color{
+ /* color: #6e6d6f; */
+ color: #b27300;
+}
+
+.date-float{
+    float:left;
+}

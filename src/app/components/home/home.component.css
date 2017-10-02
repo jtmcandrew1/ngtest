@@ -1,0 +1,48 @@
+.grid {
+ display: grid;
+ grid-template-areas:
+     "winners"
+     "winnerspic"
+     "links"
+     "linkspic"    
+}
+
+@media only screen and (min-width: 600px)   {
+    .grid {
+    grid-gap: 10px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+    "winnerspic winners"     
+    "linkspic links";
+
+    /* max-width: 600px; */
+    }
+}
+
+
+.winners {
+    grid-area: winners
+}
+
+.winners-pic {
+    grid-area: winnerspic
+}
+
+.links {
+    grid-area: links
+}
+
+.links-pic {
+    grid-area: linkspic
+}
+
+
+
+
+
+
+th
+{
+    background-color: #edede4;
+    width: 200px;
+}
