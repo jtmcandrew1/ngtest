@@ -61,6 +61,8 @@ export class StandingsComponent implements OnInit {
     this._dataService.getStandings(this.divisionIdSelected)
       .subscribe((standings) => {
 
+        console.log(standings);
+
         this.loading = false;
         this.standings = standings;
 

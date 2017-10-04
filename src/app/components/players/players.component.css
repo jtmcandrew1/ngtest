@@ -123,9 +123,15 @@
     }
   }
 
-  .center-select{
+  /* .center-select{
     width:50%; 
     text-align:center; 
     margin: 0 auto
+   } */
 
-   }
+   .player:hover{
+
+        color: black;
+        background-color:lightgray;
+        cursor:pointer; 
+    }

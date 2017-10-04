@@ -33,8 +33,8 @@ message: string;
 
 public getStandings(divisionId) : Observable<any> { 
 
-        return this.http.get(config.API_URL2 + "api/home/GetStandings/"+ "?divisionId=" + divisionId)
-                    .map((res: any) => {                        
+        return this.http.get(config.API_URL2 + "api/home/GetStandings/"+ "?divisionId=" + divisionId + "&addDropPeriod=" + config.ADD_DROP_PERIOD)
+                    .map((res: any) => {       
                       
                         return res.json();
               })} 
@@ -76,7 +76,7 @@ public getLastUpdateTime() : Observable<any> {
 
 public getRssFeeds() : Observable<any> 
 {
-          return this.http.get(config.API_URL + "api/home/GetRssFeed")
+          return this.http.get(config.API_URL2 + "api/home/GetRssFeed")
                 .map((res: any) => {
                   
       return res.json();
