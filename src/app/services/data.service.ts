@@ -33,7 +33,8 @@ message: string;
 
 public getStandings(divisionId) : Observable<any> { 
 
-        return this.http.get(config.API_URL2 + "api/home/GetStandings/"+ "?divisionId=" + divisionId + "&addDropPeriod=" + config.ADD_DROP_PERIOD)
+       // return this.http.get(config.API_URL2 + "api/home/GetStandings/"+ "?divisionId=" + divisionId + "&addDropPeriod=" + config.ADD_DROP_PERIOD)
+       return this.http.get(config.API_URL3 + "GetStandings" + "?divisionId=" + divisionId + "&addDropPeriod=" + config.ADD_DROP_PERIOD)
                     .map((res: any) => {       
                       
                         return res.json();
@@ -56,27 +57,27 @@ public getDivisions() : Observable<any> {
 
 
 public getEvents() : Observable<any> {
-    return this.http.get(config.API_URL2 + "api/home/GetEvents")
+    return this.http.get(config.API_URL3 + "GetEvents")
                 .map((res: any) => {
                   
       return res.json();
           })}           
 
 public getQuote() : Observable<any> {
-         return this.http.get(config.API_URL2 + "api/home/GetQuote")
+         return this.http.get(config.API_URL3 + "GetQuote")
                       .map((res: any) => {                       
             return res.json(); 
                })}
 
 public getLastUpdateTime() : Observable<any> {
-         return this.http.get(config.API_URL2 + "api/home/GetLastUpdateTime")
+         return this.http.get(config.API_URL3 + "GetLastUpdateTime")
                       .map((res: any) => {                       
             return res.json(); 
                })}
 
 public getRssFeeds() : Observable<any> 
 {
-          return this.http.get(config.API_URL2 + "api/home/GetRssFeed")
+          return this.http.get(config.API_URL3 + "GetRssFeed")
                 .map((res: any) => {
                   
       return res.json();
@@ -84,28 +85,28 @@ public getRssFeeds() : Observable<any>
        
           
 public getPlayerCounts() : Observable<any> {
-        return this.http.get(config.API_URL2 + "api/home/GetPlayerCounts" + "?addDropPeriod=" + config.ADD_DROP_PERIOD)
+        return this.http.get(config.API_URL3 + "GetPlayerCounts" + "?addDropPeriod=" + config.ADD_DROP_PERIOD)
                     .map((res: any) => {
                         
             return res.json();
                 })} 
                   
 public getPlayerEarnings(poolOnly) : Observable<any> {
-        return this.http.get(config.API_URL2 + "api/home/GetPlayerEarnings" + "?poolOnly=" + poolOnly)
+        return this.http.get(config.API_URL3 + "GetPlayerEarnings" + "?poolOnly=" + poolOnly)
                     .map((res: any) => {
                         
             return res.json();
                 })} 
 
 public getPoolers() : Observable<any> {
-        return this.http.get(config.API_URL2 + "api/home/GetPoolerList")
+        return this.http.get(config.API_URL3 + "GetPoolerList")
                     .map((res: any) => {
                         
             return res.json();
                 })}   
                 
 public getPoolerCompareList(poolerId1, poolerId2) : Observable<any> {
-    return this.http.get(config.API_URL2 + "api/home/GetPoolerCompareList" + "?addDropPeriod=" + config.ADD_DROP_PERIOD                                                                    
+    return this.http.get(config.API_URL3 + "GetPoolerCompareList" + "?addDropPeriod=" + config.ADD_DROP_PERIOD                                                                    
                                                 + "&poolerId1=" + poolerId1
                                                 + "&poolerId2=" + poolerId2)
                 .map((res: any) => {
@@ -114,7 +115,7 @@ public getPoolerCompareList(poolerId1, poolerId2) : Observable<any> {
             })} 
             
 public getActivePlayers() : Observable<any> {
-    return this.http.get(config.API_URL2 + "api/home/getActivePlayerList" + "?addDropPeriod=" + config.ADD_DROP_PERIOD)
+    return this.http.get(config.API_URL3 + "GetActivePlayerList" + "?addDropPeriod=" + config.ADD_DROP_PERIOD)
                 .map((res: any) => {
                     
         return res.json();
@@ -122,14 +123,14 @@ public getActivePlayers() : Observable<any> {
 
 public getWhosGotEmList(playersString) : Observable<any> {
 
-    return this.http.get(config.API_URL2 + "api/home/GetWhosGotEmList"+ "?players=" + playersString + "&addDropPeriod=" + config.ADD_DROP_PERIOD  )                                                                  
+    return this.http.get(config.API_URL3 + "GetWhosGotEmList"+ "?players=" + playersString + "&addDropPeriod=" + config.ADD_DROP_PERIOD  )                                                                  
                  .map((res: any) => {
                     
         return res.json();
             })}       
             
 public verifySeasonTotals() : Observable<any> {
-    return this.http.get(config.API_URL2 + "api/home/VerifySeasonTotals")
+    return this.http.get(config.API_URL3 + "VerifySeasonTotals")
                 .map((res: any) => {
                     
         return res.json();
@@ -178,14 +179,14 @@ public postEventResult(results : any[]) {
              */
             
 public triggerSeasonResultsScrapeProcess() : Observable<any> {
-    return this.http.get(config.API_URL2 + "api/home/TriggerSeasonResultsScraping")
+    return this.http.get(config.API_URL3 + "TriggerSeasonResultsScraping")
                 .map((res: any) => {
                     
         //return res.json();
             })} 
 
 public getAllPlayers() : Observable<any> {
-    return this.http.get(config.API_URL2 + "api/home/GetAllPlayers")
+    return this.http.get(config.API_URL3 + "GetAllPlayers")
                 .map((res: any) => {
                     
         return res.json();

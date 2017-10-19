@@ -29,3 +29,12 @@ a:active {
     padding-right: 8px;
 }
 
+.icon-opacity{
+    opacity: 0.8;   
+}
+
+/* card header */
+.header-height{
+    height:35px;
+}
+
