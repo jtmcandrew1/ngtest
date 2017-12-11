@@ -64,6 +64,10 @@ export class PicksComponent implements OnInit {
                           PoolerSelections: this.playersPicked                        
                         };
 
+    this._dataService.postPicks(pick).subscribe((response) => {       
+            
+            }); 
+
       this.success = true;    
 
   }

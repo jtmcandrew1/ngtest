@@ -154,7 +154,7 @@ public postEventResult(results : any[]) {
 
     let requestOptions = new RequestOptions({
       method: RequestMethod.Post,
-      url: config.API_URL2 + "api/home/EventResultPost",
+      url: config.API_URL3 + "EventResultPost",
       headers: this.getHeaders(),
       
       body: JSON.stringify(results)
@@ -163,6 +163,21 @@ public postEventResult(results : any[]) {
     return this.http.request(new Request(requestOptions))
         .map(res => res.json());
   }
+
+  public postPicks(results : any) {
+    console.log(JSON.stringify(results));
+   
+       let requestOptions = new RequestOptions({
+         method: RequestMethod.Post,
+         url: config.API_URL3 + "PicksPost",
+         headers: this.getHeaders(),
+         
+         body: JSON.stringify(results)
+   
+       });
+       return this.http.request(new Request(requestOptions))
+           .map(res => res.json());
+     }
 
   getHeaders() {
     return new Headers({
