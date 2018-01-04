@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Title} from "@angular/platform-browser";
+import { Router } from '@angular/router'
 
 import { DataService } from '../../services/data.service';
 
@@ -24,8 +25,10 @@ export class PicksComponent implements OnInit {
     success:boolean = false;  
 
 
-  constructor(private _dataService:DataService, private _titleService:Title,
+  constructor(private _dataService:DataService, private _titleService:Title, private router: Router,
                 private fb:FormBuilder) { 
+
+  this.router.navigate(['./home']);
 
   var emailRegex = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
                   
