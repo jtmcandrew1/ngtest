@@ -608,6 +608,84 @@
         "Year": "2017",
         "Division": "10"
         
+      },
+      {
+        "Year": "2018",
+        "Division": "1",
+        "DivisionText": " Division 1",
+        "First": "Tom Thorstenson",
+        "Second": "Jibby Nielton",
+        "Third": "Jim Coady"
+      },
+      {
+        "Year": "2018",
+        "Division": "2",
+        "DivisionText": " Division 2",
+        "First": "",
+        "Second": "",
+        "Third": ""
+      },
+      {
+        "Year": "2018",
+        "Division": "3",
+        "DivisionText": " Division 3",
+        "First": "",
+        "Second": "",
+        "Third": ""
+      },
+      {
+        "Year": "2018",
+        "Division": "4",
+        "DivisionText": " Division 4",
+        "First": "",
+        "Second": "",
+        "Third": ""
+      },
+      {
+        "Year": "2018",
+        "Division": "5",
+        "DivisionText": "The Masters",
+        "First": "",
+        "Second": "",
+        "Third": ""
+      },
+      {
+        "Year": "2018",
+        "Division": "6",
+        "DivisionText": "US Open",
+        "First": "",
+        "Second": "",
+        "Third": ""
+      },
+      {
+        "Year": "2018",
+        "Division": "7",
+        "DivisionText": " British Open",
+        "First": "",
+        "Second": "",
+        "Third": ""
+      },
+      {
+        "Year": "2018",
+        "Division": "8",
+        "DivisionText": " PGA Championship",
+        "First": "",
+        "Second": "",
+        "Third": ""
+        
+      },
+      {
+        "Year": "2018",
+        "Division": "9",
+        "DivisionText": " Season Total",
+        "First": "",
+        "Second": "",
+        "Third": ""
+      },
+      {
+        "Year": "2018",
+        "Division": "10"
+        
       }
     ]
   
