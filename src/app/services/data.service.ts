@@ -207,6 +207,29 @@ public getAllPlayers() : Observable<any> {
         return res.json();
             })} 
   
+
+
+public getDropPlayers(poolerId) : Observable<any> {
+    return this.http.get(config.API_URL3 + "GetDropPlayers" + "?poolerId=" + poolerId)
+                    .map((res: any) => {
+                        
+            return res.json();
+                })} 
+
+public getAddPlayers(poolerId) : Observable<any> {
+    return this.http.get(config.API_URL3 + "GetAddPlayers" + "?poolerId=" + poolerId)
+    .map((res: any) => {
+        
+        return res.json();
+})} 
+
+public postAddDrop(poolerId, dropPlayerRankId, addPlayerRankId) : Observable<any> {
+    return this.http.get(config.API_URL3 + "PostAddDrop" + "?poolerId=" + poolerId + "&dropPlayerRankId=" + dropPlayerRankId + "&addPlayerRankId=" + addPlayerRankId)
+    .map((res: any) => {
+        
+        return res.json();
+})} 
+  
 }
 
 

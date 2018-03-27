@@ -73,7 +73,7 @@ interface Division {
   DivisionId: number
 }
 
-interface Pooler {
+ interface Pooler {
   PoolerName: string,
   SumResults: number,
   DivisionStandings: DivisionStandings[],

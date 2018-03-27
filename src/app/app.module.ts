@@ -27,9 +27,11 @@ import { AuditComponent } from './components/audit/audit.component';
 import { ResultsComponent } from './components/results/results.component';
 import { PicksComponent } from './components/picks/picks.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { AdddropComponent } from './components/adddrop/adddrop.component';
 
 import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
+
 
 
 
@@ -48,6 +50,7 @@ const appRoutes: Routes = [
 {path:'audit', component:AuditComponent},
 {path:'results', component:ResultsComponent},
 {path:'picks', component:PicksComponent},
+{path:'adddrop', component:AdddropComponent},
 {path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
@@ -75,7 +78,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AuditComponent,
     ResultsComponent,
     PicksComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    AdddropComponent
    
     
    
