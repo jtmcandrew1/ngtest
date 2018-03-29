@@ -28,13 +28,10 @@ import { ResultsComponent } from './components/results/results.component';
 import { PicksComponent } from './components/picks/picks.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AdddropComponent } from './components/adddrop/adddrop.component';
+import { AltstandingsComponent } from './components/altstandings/altstandings.component';
 
 import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
-
-
-
-
 
 
 const appRoutes: Routes = [
@@ -42,6 +39,7 @@ const appRoutes: Routes = [
 {path:'', component:HomeComponent}, 
 {path:'home', component:HomeComponent},
 {path:'standings', component:StandingsComponent},
+{path:'altstandings', component:AltstandingsComponent},
 {path:'rules', component:RulesComponent},
 {path:'events', component:EventsComponent},
 {path:'history', component:HistoryComponent},
@@ -79,7 +77,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ResultsComponent,
     PicksComponent,
     SpinnerComponent,
-    AdddropComponent
+    AdddropComponent,
+    AltstandingsComponent
    
     
    

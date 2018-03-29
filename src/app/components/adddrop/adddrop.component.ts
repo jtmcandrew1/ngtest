@@ -23,12 +23,13 @@ export class AdddropComponent implements OnInit {
 
   loading = false;
   isValid = false;
+  success = false;  
 
   constructor(private _dataService: DataService, private _titleService: Title, private router: Router) { }
 
-  ngOnInit() {
-    if (config.REDIRECT_ON) this.router.navigate(['./home']);
+  ngOnInit() {  
 
+    if (!config.CAN_ADD_DROP) this.router.navigate(['./home']);
 
     this._titleService.setTitle('Add Drop | the golf pool');    
 
@@ -36,8 +37,8 @@ export class AdddropComponent implements OnInit {
     this._dataService.getPoolers().subscribe((poolers) => {
 
       this.poolers = poolers;
-      this.poolers.unshift({ PoolerName: 'select a pooler...', PoolerId: 0 })
-      this.poolerIdSelected = 0; 
+      // this.poolers.unshift({ PoolerName: 'select a pooler...', PoolerId: 0 })
+      // this.poolerIdSelected = 0; 
 
     });   
 
@@ -53,8 +54,8 @@ export class AdddropComponent implements OnInit {
         this.loading = false;
         this.dropPlayers = dropPlayers;
 
-        this.dropPlayers.unshift({ PlayerName: 'select a player...', PlayerRankId: 0 })
-        this.dropPlayerIdSelected = 0;        
+        // this.dropPlayers.unshift({ PlayerName: 'select a player...', PlayerRankId: 0 })
+        // this.dropPlayerIdSelected = 0;        
 
       });
 
@@ -64,8 +65,8 @@ export class AdddropComponent implements OnInit {
         this.loading = false;
         this.addPlayers = addPlayers;
 
-        this.addPlayers.unshift({ PlayerName: 'select a player...', PlayerRankId: 0 })
-        this.addPlayerIdSelected = 0; 
+        // this.addPlayers.unshift({ PlayerName: 'select a player...', PlayerRankId: 0 })
+        // this.addPlayerIdSelected = 0; 
 
         this.isValid = false;
 
@@ -81,7 +82,7 @@ export class AdddropComponent implements OnInit {
             
             }); 
 
-      // this.success = true;    
+      this.success = true;    
 
   }
 

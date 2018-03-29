@@ -11,7 +11,7 @@
 <app-spinner [loading] = "loading"></app-spinner>
 
 <div class="wrapper container">
-  <div class="row standings">
+  <div class="row adddrop" *ngIf="!success; else addDropSuccessTemplate">
     <!-- Begin Content -->
     <div class="col-md-12">
       <br>     
@@ -19,16 +19,21 @@
       <div class="form-group g-mb-25">  
         <label>Pooler Name</label>     
         <select class="form-control rounded-0" [(ngModel)]="poolerIdSelected" (ngModelChange)="onPoolerChange($event)">
-        <option *ngFor="let p of poolers" [ngValue]="p.PoolerId">{{p.PoolerName}}</option>
+          <option value='0'>- select a pooler -</option>
+          <option *ngFor="let p of poolers" [ngValue]="p.PoolerId">{{p.PoolerName}}</option>
+        
     </select>
       </div>
 
-      <br>     
+      <br>   
+      
+      <div *ngIf="poolerIdSelected>0">
 
       <div class="form-group g-mb-25">  
         <label>Drop Player</label>     
         <select class="form-control rounded-0" [(ngModel)]="dropPlayerIdSelected" (ngModelChange)="validate()">
-        <option *ngFor="let p of dropPlayers" [ngValue]="p.PlayerRankId">{{p.PlayerName}}</option>
+          <option value='0'>- select a player -</option>
+          <option *ngFor="let p of dropPlayers" [ngValue]="p.PlayerRankId">{{p.PlayerName}}</option>
     </select>
       </div>
 
@@ -37,20 +42,32 @@
       <div class="form-group g-mb-25">  
           <label>Add Player</label>     
           <select class="form-control rounded-0" [(ngModel)]="addPlayerIdSelected" (ngModelChange)="validate()">
-          <option *ngFor="let p of addPlayers" [ngValue]="p.PlayerRankId">{{p.PlayerName}}</option>
+            <option value='0'>- select a player -</option>
+            <option *ngFor="let p of addPlayers" [ngValue]="p.PlayerRankId">{{p.PlayerName}}</option>
       </select>
         </div>
 
         <button type="button" [disabled]="!isValid" (click)="submitChanges()" class="btn btn-md u-btn-primary rounded-0">Submit</button>
-
-        <!-- <br>
+      </div>
+      
+         <!-- <br>
         <label>Drop: {{dropPlayerIdSelected}}</label> 
-        [disabled]="dropPlayerIdSelected=0"
+        
         <br>
-        <label>Add: {{addPlayerIdSelected}}</label>  -->
+        <label>Add: {{addPlayerIdSelected}}</label>  
+        <br>
+        <label>Add: {{poolerIdSelected}}</label>   -->
 
       
 
     </div>
   </div>
 </div>
+
+<ng-template #addDropSuccessTemplate>
+    <div class="g-mt-80 adddrop">
+        <h3>Thank you, your add/drop selections have been received.</h3>
+        <h3>You should receive a confirmation email shortly.</h3>
+        <h4><a routerLink="/">Click here to return to home page.</a></h4>
+    </div>
+</ng-template>

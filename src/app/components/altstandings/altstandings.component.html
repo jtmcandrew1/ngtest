@@ -1,0 +1,38 @@
+<app-spinner [loading] = "loading"></app-spinner>
+
+<div class="wrapper container">
+  <div class="row standings">
+    <!-- Begin Content -->
+    <div class="col-md-12">
+      <br>
+      <h4 class="h5 text-white g-font-weight-400 align-center g-bg-primary g-mb-20">updated: {{lastUpdate}}</h4>
+
+      <div class="form-group g-mb-25">       
+        <select class="form-control rounded-0" [(ngModel)]="divisionIdSelected" (ngModelChange)="onDivisionChange($event)">
+        <option *ngFor="let d of divisions" [ngValue]="d.DivisionId">{{d.Name}}</option>
+    </select>
+      </div>
+
+      <!--  g-bg-gray-light-v4 -->
+      <!-- Default Outline Panel-->
+      <div *ngFor="let pooler of standings; let i = index">
+        <div class="pooler">
+          <!-- <i class="fa fa-tasks g-font-size-default g-mr-5"></i>  -->
+          <div class="align-center">
+            <h6>{{ i + 1 }}</h6>
+          </div>
+          <div>
+            <h6>{{pooler.PoolerName}}</h6>
+          </div>
+          <div class="align-right">
+            <h6>{{pooler.ResultsSum | currency:'USD':true:'1.0-0'}}</h6>
+          </div>        
+
+        </div>
+       
+      </div>
+      <!-- End Default Outline Panel-->
+
+    </div>
+  </div>
+</div>
