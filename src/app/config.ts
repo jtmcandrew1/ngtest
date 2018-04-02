@@ -12,7 +12,7 @@ export const CONTACT_EMAIL = "info@thegolfpool.net"
 
 export const REDIRECT_ON = false
 
-export const ADD_DROP_PERIOD: number = 1
+export const ADD_DROP_PERIOD: number = 2
 
 export const CAN_ADD_DROP: boolean = true
 

@@ -1,0 +1,68 @@
+<app-spinner [loading]="loading"></app-spinner>
+
+<div class="container">
+  <div>
+      <!-- <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" routerLink="/altstandings">Standings</a> -->
+      <i class="fa fa-link g-color-primary g-mt-5 g-mr-5"></i>
+      <a routerLink="/altstandings">Standings </a>
+  </div>
+   
+
+  <div class="form-group g-mb-15 g-mt-15">
+    <select class="form-control rounded-0" [(ngModel)]="divisionIdSelected" (ngModelChange)="onDivisionChange($event)">
+      <option *ngFor="let d of divisions" [ngValue]="d.DivisionId">{{d.Name}}</option>
+    </select>
+  </div>
+
+  <div class="wrapper">
+
+    <div *ngFor="let pooler of standings; let i = index">
+      <div>
+        <div>
+          <div>
+            <table>
+                
+              <tr class="make-bold">
+                <td colspan="2" >{{pooler.PoolerName}}</td>
+               
+              </tr>
+
+              <tr class="font-size-85" *ngFor="let player of pooler.DivisionStandings; let i = index">
+                <td width="70%" *ngIf="addDropPeriod===1">{{player.PlayerName}}</td>
+                <td width="70%" *ngIf="addDropPeriod===2">{{player.PlayerDisplayName}}</td>
+                <td width="30%" class="align-right">{{player.Earnings | currency:'USD':true:'1.0-0'}}</td>
+              </tr>
+
+              <tr class="font-size-85" *ngIf="pooler.DivisionStandings.length===15">
+                  <td>&nbsp;</td>
+              </tr>
+
+              <tr class="make-bold">
+                <td>Totals:</td>
+                <td class="align-right">{{pooler.ResultsSum | currency:'USD':true:'1.0-0'}}</td>
+              </tr>
+            </table>
+
+            <!-- <ul class="h6 playerdetails" *ngFor="let player of pooler.DivisionStandings; let i = index">
+              <li>
+              <div class="align-center">{{ i + 1 }}</div>
+              <div *ngIf="addDropPeriod===1">{{player.PlayerName}}</div>
+              <div *ngIf="addDropPeriod===2">{{player.PlayerDisplayName}}</div>
+              <div class="align-right">{{player.Earnings | currency:'USD':true:'1.0-0'}}</div>
+             </li>
+            </ul>
+
+            <div class="align-right">
+              <h6>{{pooler.ResultsSum | currency:'USD':true:'1.0-0'}}</h6>
+            </div> -->
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</div>

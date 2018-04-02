@@ -38,3 +38,11 @@ a:active {
     height:35px;
 }
 
+.make-bold{
+    font-weight: bold;    
+}
+
+.font-size-85{
+    font-size: 85%;    
+}
+

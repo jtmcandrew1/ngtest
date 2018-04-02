@@ -8,15 +8,22 @@ import * as config from '../../config';
 @Component({
   selector: 'app-altstandings',
   templateUrl: './altstandings.component.html',
-  styleUrls: ['./altstandings.component.css']
+  styleUrls: ['./altstandings.component.css', '../../app.component.css']
 })
 
 export class AltstandingsComponent implements OnInit {
 
-  standings: Pooler[]; 
-  divisions: Division[] = [];
-  divisionIdSelected = 9;
-  lastUpdate: string;  
+  standingsA: Pooler[]; 
+  divisionsA: Division[] = [];
+  divisionIdSelectedA; 
+
+  standingsB: Pooler[]; 
+  divisionsB: Division[] = [];
+  divisionIdSelectedB; 
+
+  standingsC: Pooler[]; 
+  divisionsC: Division[] = [];
+  divisionIdSelectedC; 
 
   loading = false;
 
@@ -28,28 +35,58 @@ export class AltstandingsComponent implements OnInit {
 
     if (config.REDIRECT_ON) this.router.navigate(['./home']);
 
-
-    this._titleService.setTitle('AltStandings | the golf pool');   
-
+    this._titleService.setTitle('AltStandings | the golf pool');  
 
     this._dataService.getDivisions().subscribe((divisions) => {
 
-      this.divisions = divisions;
+      this.divisionsA = divisions;
+      this.divisionsB = divisions;
+      this.divisionsC = divisions;
 
     });
 
-    this.divisionIdSelected = 9;
-    this.onDivisionChange();
+    this.divisionIdSelectedA = 9;
+    this.onDivisionAChange();
+
+    this.divisionIdSelectedB = 2;
+    this.onDivisionBChange();
+
+    this.divisionIdSelectedC = 5;
+    this.onDivisionCChange();
   }
 
-  onDivisionChange() {
+  onDivisionAChange() {
     this.loading = true;
 
-    this._dataService.getStandings(this.divisionIdSelected)
+    this._dataService.getStandings(this.divisionIdSelectedA)
       .subscribe((standings) => {       
 
         this.loading = false;
-        this.standings = standings;
+        this.standingsA = standings;
+
+      });
+  }
+
+  onDivisionBChange() {
+    this.loading = true;
+
+    this._dataService.getStandings(this.divisionIdSelectedB)
+      .subscribe((standings) => {       
+
+        this.loading = false;
+        this.standingsB = standings;
+
+      });
+  }
+
+  onDivisionCChange() {
+    this.loading = true;
+
+    this._dataService.getStandings(this.divisionIdSelectedC)
+      .subscribe((standings) => {       
+
+        this.loading = false;
+        this.standingsC = standings;
 
       });
   }
