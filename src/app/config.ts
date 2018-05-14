@@ -10,9 +10,9 @@ export const API_CODE = "/iabufVoFvRxxlZQayTABDP0yuOOE3B0BoguCjQH5GYy0yrBhw4vQw=
 
 export const CONTACT_EMAIL = "info@thegolfpool.net"
 
-export const REDIRECT_ON = false
+export const REDIRECT_ON: boolean = false
 
-export const ADD_DROP_PERIOD: number = 2
+export const ADD_DROP_PERIOD: number = 1
 
 export const CAN_ADD_DROP: boolean = true
 

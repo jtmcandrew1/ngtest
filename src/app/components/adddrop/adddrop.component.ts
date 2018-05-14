@@ -9,7 +9,7 @@ import * as config from '../../config';
 @Component({
   selector: 'app-adddrop',
   templateUrl: './adddrop.component.html',
-  styleUrls: ['./adddrop.component.css']
+  styleUrls: ['./adddrop.component.css', '../../app.component.css']
 })
 export class AdddropComponent implements OnInit {
   poolers: Pooler[] = [];
@@ -69,6 +69,8 @@ export class AdddropComponent implements OnInit {
         // this.addPlayerIdSelected = 0; 
 
         this.isValid = false;
+        this.dropPlayerIdSelected = 0;
+        this.addPlayerIdSelected = 0;
 
       });
 
