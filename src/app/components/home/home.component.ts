@@ -14,15 +14,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   winnersAll:Winner[];
-  winners1:Winner={ Year:"", Division:"", DivisionText:"", First:"", Second:"",  Third:""};
-  winners2:Winner={ Year:"", Division:"", DivisionText:"", First:"", Second:"",  Third:""};;
-  winners3:Winner={ Year:"", Division:"", DivisionText:"", First:"", Second:"",  Third:""};;
-  winners4:Winner={ Year:"", Division:"", DivisionText:"", First:"", Second:"",  Third:""};;
-  winners5:Winner={ Year:"", Division:"", DivisionText:"", First:"", Second:"",  Third:""};;
-  winners6:Winner={ Year:"", Division:"", DivisionText:"", First:"", Second:"",  Third:""};;
-  winners7:Winner={ Year:"", Division:"", DivisionText:"", First:"", Second:"",  Third:""};;
-  winners8:Winner={ Year:"", Division:"", DivisionText:"", First:"", Second:"",  Third:""};;
-  winners9:Winner={ Year:"", Division:"", DivisionText:"", First:"", Second:"",  Third:""};;
+  winners1:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};
+  winners2:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
+  winners3:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
+  winners4:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
+  winners5:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
+  winners6:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
+  winners7:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
+  winners8:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
+  winners9:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
 
   rssFeeds:any[];
   year:string = "2017";
@@ -37,62 +37,65 @@ export class HomeComponent implements OnInit {
   
     ngOnInit() {
   
-      this._titleService.setTitle('Home | the golf pool');
+    this._titleService.setTitle('Home | the golf pool');
 
-    this.years = ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"];    
-    this.yearSelected = "2018";   
+    this.years = ["2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010"];    
+    this.yearSelected = "2018";  
+   
 
-    this.onYearChange();
+    this._dataService.getWinners().subscribe((winners) => {      
+        this.winnersAll = winners;  
 
-     this._dataService.getRssFeeds().subscribe((feeds) => {     
-    this.rssFeeds = feeds;   
-    });          
+        this.onYearChange();
+
+        this._dataService.getRssFeeds().subscribe((feeds) => {     
+          this.rssFeeds = feeds;   
+          }); 
+    });
+
+
+
+    
 
   } 
   
 
  onYearChange()
-{
-   this._dataService.getWinners(this.yearSelected).subscribe((winners) => {      
-      this.winnersAll = winners;
-
+{  
       this.winners1 = this.winnersAll.filter(
-          winner => winner.Division === "1")[0];
+          winner => winner.DivisionId == '1' && winner.Year ==  this.yearSelected)[0];
 
       this.winners2 = this.winnersAll.filter(
-          winner => winner.Division === "2")[0];
+        winner => winner.DivisionId == "2" && winner.Year ==  this.yearSelected)[0];
           
       this.winners3 = this.winnersAll.filter(
-          winner => winner.Division === "3")[0];  
+        winner => winner.DivisionId == "3" && winner.Year ==  this.yearSelected)[0];  
       
       this.winners4 = this.winnersAll.filter(
-          winner => winner.Division === "4")[0];
+        winner => winner.DivisionId == "4" && winner.Year ==  this.yearSelected)[0];
 
       this.winners5 = this.winnersAll.filter(
-          winner => winner.Division === "5")[0];
+        winner => winner.DivisionId == "5" && winner.Year ==  this.yearSelected)[0];
           
       this.winners6 = this.winnersAll.filter(
-          winner => winner.Division === "6")[0];  
+        winner => winner.DivisionId == "6" && winner.Year ==  this.yearSelected)[0];
       
       this.winners7 = this.winnersAll.filter(
-          winner => winner.Division === "7")[0];
+        winner => winner.DivisionId == "7" && winner.Year ==  this.yearSelected)[0];
 
       this.winners8 = this.winnersAll.filter(
-          winner => winner.Division === "8")[0];
+        winner => winner.DivisionId == "8" && winner.Year ==  this.yearSelected)[0];
           
       this.winners9 = this.winnersAll.filter(
-          winner => winner.Division === "9")[0];           
-      
-       }); 
-
+        winner => winner.DivisionId == "9" && winner.Year ==  this.yearSelected)[0];           
+         
 
 }
 } 
 
 interface Winner{
   Year:string,
-  Division:string,
-  DivisionText:string,
+  DivisionId:string,  
   First:string,
   Second:string,
   Third:string

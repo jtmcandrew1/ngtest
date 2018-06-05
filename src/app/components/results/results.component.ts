@@ -12,9 +12,10 @@ import { DataService } from '../../services/data.service';
 export class ResultsComponent implements OnInit {
 
   status:string="not started";
-  eventEarnings="";
+  eventEarnings = "";
   events: Tournament[]=[];
   selectedEvent: Tournament = null;  
+  results: any[]=[];
   
 
   constructor(private _dataService:DataService, private _titleService: Title) { }
@@ -27,7 +28,13 @@ export class ResultsComponent implements OnInit {
       
       this.events = events;
 
-    });   
+    }); 
+    
+    this._dataService.getEventResults().subscribe((results) => { 
+      
+      this.eventEarnings = results;
+
+    }); 
   }
 
 

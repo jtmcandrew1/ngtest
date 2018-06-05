@@ -22,14 +22,19 @@ message: string;
 
   constructor(private http:Http, public authHttp: AuthHttp) { }
 
-   public getWinners(year:string) : Observable<any> {
+   public getWinnersJson(year:string) : Observable<any> {
          return this.http.get("assets/json/winners.json")
                       .map((res: any) => {
                        
             return res.json().filter(winner => winner.Year === year);
                })} 
                  
-
+   public getWinners() : Observable<any> {
+        return this.http.get(config.API_URL3 + "GetWinners")
+                        .map((res: any) => {
+                        
+            return res.json();
+                })} 
 
 public getStandings(divisionId) : Observable<any> { 
 
@@ -206,6 +211,14 @@ public getAllPlayers() : Observable<any> {
                     
         return res.json();
             })} 
+
+
+public getEventResults() : Observable<any> {
+    return this.http.get(config.API_URL3 + "GetEventResults")
+                .map((res: any) => {
+                    
+        return res.json();
+            })}             
   
 
 
