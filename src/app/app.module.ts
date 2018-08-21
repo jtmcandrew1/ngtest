@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 
 
@@ -91,6 +92,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    HttpClientJsonpModule
     // PopupModule.forRoot()
   ],
   providers: [DataService

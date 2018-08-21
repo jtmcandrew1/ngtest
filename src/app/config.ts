@@ -1,4 +1,4 @@
-export const API_URL3 = "http://data.thegolfpool.net/api/home/"
+export const API_URL3 = "https://data.thegolfpool.net/api/home/"
 export const API_URL2 = "http://golfpooldatacore.azurewebsites.net/api/home/"
 export const API_URL = "https://functionappgolfpool.azurewebsites.net/api/"
 //export const API_CODE = "HB1/Q3IjzGibsqNiiSYofjKsabRvQTyRQq/kB4kGDwnAbroe1ONQQA=="

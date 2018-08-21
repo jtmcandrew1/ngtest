@@ -95,6 +95,13 @@ public getPlayerCounts() : Observable<any> {
                         
             return res.json();
                 })} 
+
+public getPlayerLeaderboard() : Observable<any> {
+    return this.http.get(config.API_URL3 + "GetPlayerLeaderboard" + "?addDropPeriod=" + config.ADD_DROP_PERIOD)
+                .map((res: any) => {
+                    
+        return res.json();
+            })}                 
                   
 public getPlayerEarnings(poolOnly) : Observable<any> {
         return this.http.get(config.API_URL3 + "GetPlayerEarnings" + "?poolOnly=" + poolOnly)
@@ -213,12 +220,20 @@ public getAllPlayers() : Observable<any> {
             })} 
 
 
-public getEventResults() : Observable<any> {
-    return this.http.get(config.API_URL3 + "GetEventResults")
+public getEspnEventResults() : Observable<any> {
+    return this.http.get(config.API_URL3 + "GetEspnEventResults")
                 .map((res: any) => {
                     
         return res.json();
-            })}             
+            })}  
+            
+            
+public getEventResults(eventId) : Observable<any> {
+    return this.http.get(config.API_URL3 + "GetEventResults" + "?eventId=" + eventId)
+                .map((res: any) => {
+                    
+        return res.json();
+            })}              
   
 
 

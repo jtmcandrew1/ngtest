@@ -47,17 +47,21 @@ export class HomeComponent implements OnInit {
         this.winnersAll = winners;  
 
         this.onYearChange();
-
-        this._dataService.getRssFeeds().subscribe((feeds) => {     
-          this.rssFeeds = feeds;   
-          }); 
-    });
-
-
-
-    
+        
+        this.getRss();
+        
+         
+    });   
 
   } 
+
+  getRss(){
+
+    this._dataService.getRssFeeds().subscribe((feeds) => {     
+      this.rssFeeds = feeds;
+    }); 
+
+  }
   
 
  onYearChange()

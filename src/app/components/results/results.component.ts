@@ -27,14 +27,32 @@ export class ResultsComponent implements OnInit {
     this._dataService.getEvents().subscribe((events) => { 
       
       this.events = events;
-
+      
     }); 
+
+    this.getEspnEventResults();
     
-    this._dataService.getEventResults().subscribe((results) => { 
+   
+  }
+
+  getEventResults(){
+
+    this._dataService.getEventResults(this.selectedEvent.EventId.toString()).subscribe((results) => { 
       
       this.eventEarnings = results;
 
     }); 
+
+  }
+
+  getEspnEventResults(){
+
+    this._dataService.getEspnEventResults().subscribe((results) => { 
+      
+      this.eventEarnings = results;
+
+    }); 
+    
   }
 
 
@@ -49,6 +67,9 @@ export class ResultsComponent implements OnInit {
 
          if(!line) continue;
 
+         line = line.replace("&#039;", "'");
+         line = line.replace("酶", "o");
+
           var lineArray = line.split("$");
           //console.log(result[0], "   " + result[1]); 
 
@@ -56,15 +77,21 @@ export class ResultsComponent implements OnInit {
 
           //alert(result.PlayerName + "," + result.Earnings + "," + result.EventId)
           
-          results.push(result);         
+          results.push(result);   
+          
+          
           
     } 
+
+    //console.log(results);  
 
     this._dataService.postEventResult(results).subscribe((response) => { 
 
       this.eventEarnings="";
       this.status = "finished";
       }); 
+
+      return;
 
   }  
 

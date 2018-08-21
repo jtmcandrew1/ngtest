@@ -15,6 +15,7 @@ import { REDIRECT_ON } from '../../config';
 export class PlayersComponent implements OnInit {
 
   playerCounts: PlayerByCount[];
+  playerLeaderboard: PlayerLeaderboard[];
   playerResults: PlayerByResults[];
   poolers: Pooler[] = [];
   poolerCompare1: Pooler;
@@ -49,6 +50,11 @@ export class PlayersComponent implements OnInit {
 
     this._dataService.getPlayerCounts().subscribe((playerCounts) => {
       this.playerCounts = playerCounts;
+      this.loading = false;
+    });
+
+    this._dataService.getPlayerLeaderboard().subscribe((playerLeaderboard) => {
+      this.playerLeaderboard = playerLeaderboard;
       this.loading = false;
     });
 
@@ -231,6 +237,15 @@ interface Player {
   PlayerName: string
   PlayerRankId: number
   CompareStatus: number
+}
+
+interface PlayerLeaderboard {
+  NameAndCount: string
+  Score: string
+  ScoreText: string
+  Position: string
+  PoolerSelections: PoolerSelection[],
+  Open: false
 }
 
 

@@ -61,7 +61,70 @@
       }
     }
 
-  
+
+
+    .wrapper-leaderboards{
+        display: grid;
+        grid-template-columns: 1fr 9fr 1fr;
+        grid-template-areas:     
+           ". player-leaderboards ."    
+      }
+      
+      @media only screen and (min-width: 800px)  {
+          .wrapper-leaderboards {
+             grid-template-columns: 1fr 5fr 1fr;
+              grid-template-areas:
+          ". player-leaderboards ."
+             
+          }
+      }  
+    
+      @media only screen and (min-width: 1200px)  {
+        .wrapper-leaderboards {
+           grid-template-columns: 1fr 2fr 1fr;
+            grid-template-areas:
+        ". player-leaderboards ."
+           
+        }
+      }
+      
+      .player-leaderboards{
+          grid-area: player-leaderboards; 
+      }
+      
+      
+      .player-leaderboard{
+          /* width: 340px; */
+          display: grid;
+          grid-template-columns: 3fr 1fr 1fr 1fr;    
+          /* grid-auto-rows: minxax(2px, auto);  */
+          /* background-color:  #edede4; */   
+      
+      }
+      
+      
+      
+      .player-leaderboard-details{  
+          display: grid;
+          grid-template-columns: 1fr       
+      
+      }
+    
+      @media only screen and (min-width: 600px)  {
+      .player-leaderboard-details{  
+        
+        grid-template-columns: repeat(2, 180px ) ;  
+    
+        }
+      }
+    
+      @media only screen and (min-width: 900px)  {
+        .player-leaderboard-details{  
+          
+          grid-template-columns: repeat(3, 180px ) ;  
+      
+          }
+        }
 
 
 
