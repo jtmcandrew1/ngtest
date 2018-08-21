@@ -240,10 +240,9 @@ interface Player {
 }
 
 interface PlayerLeaderboard {
-  NameAndCount: string
-  Score: string
+  NameAndCount: string  
   ScoreText: string
-  Position: string
+  PositionText: string 
   PoolerSelections: PoolerSelection[],
   Open: false
 }
