@@ -53,10 +53,7 @@ export class PlayersComponent implements OnInit {
       this.loading = false;
     });
 
-    this._dataService.getPlayerLeaderboard().subscribe((playerLeaderboard) => {
-      this.playerLeaderboard = playerLeaderboard;
-      this.loading = false;
-    });
+    
 
     this._dataService.getPoolers().subscribe((poolers) => {
       this.poolers = poolers;
@@ -72,12 +69,17 @@ export class PlayersComponent implements OnInit {
       this.playersAll = players;     
 
     });
-
-    /* this.playersAll.push({PlayerName: "Tom", PlayerId: 1, CompareStatus:1});
-    this.playersAll.push({PlayerName: "Dick", PlayerId: 2, CompareStatus:1});
-    this.playersAll.push({PlayerName: "Harry", PlayerId: 3, CompareStatus:1}); */
-
+    
+    this.refreshLeaderboard();
     this.onPoolOnlyChange();
+
+  }
+
+  refreshLeaderboard(){
+    this._dataService.getPlayerLeaderboard().subscribe((playerLeaderboard) => {
+      this.playerLeaderboard = playerLeaderboard;
+      this.loading = false;
+    });
 
   }
 
@@ -243,6 +245,7 @@ interface PlayerLeaderboard {
   NameAndCount: string  
   ScoreText: string
   PositionText: string 
+  ThruText: string
   PoolerSelections: PoolerSelection[],
   Open: false
 }

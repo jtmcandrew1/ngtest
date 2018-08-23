@@ -1,3 +1,12 @@
+h6{
+    font-size:85%; 
+  }
+
+  .h6{
+    font-size:100%; 
+  }  
+
+
 .wrapper-counts{
     display: grid;
     grid-template-columns: 1fr;
@@ -96,17 +105,12 @@
       .player-leaderboard{
           /* width: 340px; */
           display: grid;
-          grid-template-columns: 10fr 2fr 2fr 1fr; 
+          grid-template-columns: 12fr 2fr 2fr 2fr 1fr; 
             
           /* grid-auto-rows: minxax(2px, auto);  */
           /* background-color:  #edede4; */   
       
-      }
-
-      h6{
-        font-size:75%; 
-      }
-      
+      }     
       
       
       .player-leaderboard-details{  
@@ -135,9 +139,9 @@
 
   .wrapper-results{
     display: grid;
-    grid-template-columns: 1fr 9fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-areas:     
-       ". player-results ."    
+       "player-results"    
   }
   
   @media only screen and (min-width: 800px)  {
