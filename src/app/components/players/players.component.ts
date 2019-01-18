@@ -40,20 +40,16 @@ export class PlayersComponent implements OnInit {
 
   ngOnInit() {
 
-
     if (REDIRECT_ON) this.router.navigate(['./home']);
-
-    this.loading = true;
 
     this._titleService.setTitle('Players | the golf pool');
 
+    this.loading = true;
 
     this._dataService.getPlayerCounts().subscribe((playerCounts) => {
       this.playerCounts = playerCounts;
       this.loading = false;
-    });
-
-    
+    });    
 
     this._dataService.getPoolers().subscribe((poolers) => {
       this.poolers = poolers;
@@ -76,6 +72,8 @@ export class PlayersComponent implements OnInit {
   }
 
   refreshLeaderboard(){
+    this.loading = true;
+
     this._dataService.getPlayerLeaderboard().subscribe((playerLeaderboard) => {
       this.playerLeaderboard = playerLeaderboard;
       this.loading = false;
@@ -246,6 +244,7 @@ interface PlayerLeaderboard {
   ScoreText: string
   PositionText: string 
   ThruText: string
+  TodayText: string
   PoolerSelections: PoolerSelection[],
   Open: false
 }

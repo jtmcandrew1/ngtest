@@ -14,9 +14,9 @@ h6{
        "player-counts"    
   }
   
-  @media only screen and (min-width: 800px)  {
+   @media only screen and (min-width: 800px)  { 
       .wrapper-counts {
-         grid-template-columns: 1fr 5fr 1fr;
+         grid-template-columns: 1fr 9fr 1fr;
           grid-template-areas:
       ". player-counts ."
          
@@ -54,21 +54,21 @@ h6{
   
   }
 
-  @media only screen and (min-width: 600px)  {
+  @media only screen and (min-width: 400px)  {
   .player-count-details{  
     
-    grid-template-columns: repeat(2, 180px ) ;  
+    grid-template-columns: repeat(2, 175px ) ;  
 
     }
   }
 
-  @media only screen and (min-width: 900px)  {
+   @media only screen and (min-width: 700px)  {
     .player-count-details{  
       
-      grid-template-columns: repeat(3, 180px ) ;  
+      grid-template-columns: repeat(3, 175px ) ;  
   
       }
-    }
+    } 
 
 
 
@@ -81,7 +81,7 @@ h6{
       
       @media only screen and (min-width: 800px)  {
           .wrapper-leaderboards {
-             grid-template-columns: 1fr 5fr 1fr;
+             grid-template-columns: 1fr 9fr 1fr;
               grid-template-areas:
           ". player-leaderboards ."
              
@@ -105,7 +105,7 @@ h6{
       .player-leaderboard{
           /* width: 340px; */
           display: grid;
-          grid-template-columns: 12fr 2fr 2fr 2fr 1fr; 
+          grid-template-columns: 10fr 2fr 2fr 2fr 2fr 1fr; 
             
           /* grid-auto-rows: minxax(2px, auto);  */
           /* background-color:  #edede4; */   
@@ -119,21 +119,21 @@ h6{
       
       }
     
-      @media only screen and (min-width: 600px)  {
+      @media only screen and (min-width: 400px)  {
       .player-leaderboard-details{  
         
-        grid-template-columns: repeat(2, 180px ) ;  
+        grid-template-columns: repeat(2, 175px ) ;  
     
         }
       }
     
-      @media only screen and (min-width: 900px)  {
+       @media only screen and (min-width: 600px)  {
         .player-leaderboard-details{  
           
-          grid-template-columns: repeat(3, 180px ) ;  
+          grid-template-columns: repeat(3, 175px ) ;  
       
           }
-        }
+        } 
 
 
 
