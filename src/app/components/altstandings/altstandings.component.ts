@@ -51,7 +51,7 @@ export class AltstandingsComponent implements OnInit {
     this.divisionIdSelectedB = 2;
     this.onDivisionBChange();
 
-    this.divisionIdSelectedC = 5;
+    this.divisionIdSelectedC = 3;
     this.onDivisionCChange();
   }
 

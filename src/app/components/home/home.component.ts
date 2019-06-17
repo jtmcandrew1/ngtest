@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   winners9:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
 
   rssFeeds:any[];
-  year:string = "2017";
+  year:string = "2019";
 
   
   yearSelected: string
@@ -39,8 +39,8 @@ export class HomeComponent implements OnInit {
   
     this._titleService.setTitle('Home | the golf pool');
 
-    this.years = ["2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010"];    
-    this.yearSelected = "2018";  
+    this.years = ["2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010"];    
+    this.yearSelected = "2019";  
    
 
     this._dataService.getWinners().subscribe((winners) => {      
