@@ -9,9 +9,9 @@
 </section>
 
 <!--=== Content Part ===-->
-<div class="container content">
+<!-- <div class="container content">
     <div class="row">
-        <!-- Begin Content -->
+       
         <div class="col-md-12">
             <ul>
           <li><h5><a href="/assets/pdf/2009Standings.pdf">2009</a></h5></li>
@@ -29,6 +29,115 @@
           
 
 </div>
+</div>
+</div> -->
+
+<app-spinner [loading]="loading"></app-spinner>
+
+<div class="container">
+  <!-- <div>
+   
+    <i class="fa fa-link g-color-primary g-mt-5 g-mr-5"></i>
+    <a routerLink="/divisiondetail">Detail </a>
+  </div> -->
+
+  <div class="wrapper">    
+
+  <div class="form-group g-mb-10 row">
+      <!-- <label for="exampleSelect1">Example select</label> -->
+      <select style="width:340px; margin-left: 30px;" class="form-control rounded-0" [(ngModel)]="yearSelected" (ngModelChange)="onYearChange($event)">
+     <option *ngFor="let y of years" [ngValue]="y">{{y}}</option>
+  </select>
+    </div>
+  </div>
+
+  <div class="wrapper">    
+
+
+  <div class="standings">
+    <div class="col-md-12">
+      <div class="form-group g-mb-15 g-mt-15">
+        <select class="form-control rounded-0" [(ngModel)]="divisionIdSelectedA" (ngModelChange)="onDivisionAChange($event)">
+          <option *ngFor="let d of divisionsA" [ngValue]="d.DivisionId">{{d.Name}}</option>
+        </select>
+      </div>
+      <div *ngFor="let pooler of standingsA; let i = index">
+        <div class="pooler">
+
+          <div class="align-center">
+            <h6>{{i + 1}}</h6>
+          </div>
+
+          <div>
+            <h6>{{pooler.PoolerName}}</h6>
+          </div>
+
+          <div class="align-right">
+            <h6>{{pooler.Earnings | currency:'USD':true:'1.0-0'}}</h6>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="standings">
+    <div class="col-md-12">
+
+      <div class="form-group g-mb-15 g-mt-15">
+        <select class="form-control rounded-0" [(ngModel)]="divisionIdSelectedB" (ngModelChange)="onDivisionBChange($event)">
+          <option *ngFor="let d of divisionsB" [ngValue]="d.DivisionId">{{d.Name}}</option>
+        </select>
+      </div>
+      <div *ngFor="let pooler of standingsB; let i = index">
+        <div class="pooler">
+          <div class="align-center">
+            <h6>{{ i + 1 }}</h6>
+          </div>
+          <div>
+            <h6>{{pooler.PoolerName}}</h6>
+          </div>
+          <div class="align-right">
+            <h6>{{pooler.Earnings | currency:'USD':true:'1.0-0'}}</h6>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="standings">
+    <div class="col-md-12">
+
+      <div class="form-group g-mb-15 g-mt-15">
+        <select class="form-control rounded-0" [(ngModel)]="divisionIdSelectedC" (ngModelChange)="onDivisionCChange($event)">
+          <option *ngFor="let d of divisionsC" [ngValue]="d.DivisionId">{{d.Name}}</option>
+        </select>
+      </div>
+      <div *ngFor="let pooler of standingsC; let i = index">
+        <div class="pooler">
+          <div class="align-center">
+            <h6>{{ i + 1 }}</h6>
+          </div>
+          <div>
+            <h6>{{pooler.PoolerName}}</h6>
+          </div>
+          <div class="align-right">
+            <h6>{{pooler.Earnings | currency:'USD':true:'1.0-0'}}</h6>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+ 
 </div>
 </div>
 

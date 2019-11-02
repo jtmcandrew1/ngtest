@@ -36,6 +36,13 @@ message: string;
             return res.json();
                 })} 
 
+    public getHistory(year, division) : Observable<any> {
+        return this.http.get(config.API_URL3 + "GetHistory" + "?year=" + year + "&division=" + division)
+                        .map((res: any) => {
+                        
+            return res.json();
+                })} 
+
 public getStandings(divisionId) : Observable<any> { 
 
        // return this.http.get(config.API_URL2 + "api/home/GetStandings/"+ "?divisionId=" + divisionId + "&addDropPeriod=" + config.ADD_DROP_PERIOD)

@@ -1,18 +1,115 @@
 import { Component, OnInit } from '@angular/core';
-import { Title} from '@angular/platform-browser'
+import { Title } from '@angular/platform-browser'
+
+import { Router } from '@angular/router'
+
+import { DataService } from '../../services/data.service';
+import * as config from '../../config';
 
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
-  styleUrls: ['./history.component.css','../../app.component.css']
+  styleUrls: ['./history.component.css', '../../app.component.css']
 })
 export class HistoryComponent implements OnInit {
 
-  constructor(private _titleService: Title) { }
-  
-    ngOnInit() {
-  
-      this._titleService.setTitle('History | the golf pool');
+  standingsA: Pooler[];
+  divisionsA: Division[] = [];
+  divisionIdSelectedA;
+
+  standingsB: Pooler[];
+  divisionsB: Division[] = [];
+  divisionIdSelectedB;
+
+  standingsC: Pooler[];
+  divisionsC: Division[] = [];
+  divisionIdSelectedC;
+
+  //year: string = "2019";
+
+  yearSelected: string
+
+  years: any[];
+
+  loading = false;
+
+  constructor(private _dataService: DataService, private _titleService: Title, private router: Router) { }
+
+  ngOnInit() {
+
+    this._titleService.setTitle('History | the golf pool');
+
+    this.years = config.YEARS //["2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009"];
+    this.yearSelected = config.CURRENT_YEAR;
+
+    this._dataService.getDivisions().subscribe((divisions) => {
+
+      this.divisionsA = divisions;
+      this.divisionsB = divisions;
+      this.divisionsC = divisions;
+
+    });
+
+    this.divisionIdSelectedA = 9;
+    this.onDivisionAChange();
+
+    this.divisionIdSelectedB = 1;
+    this.onDivisionBChange();
+
+    this.divisionIdSelectedC = 2;
+    this.onDivisionCChange();
   }
 
+  onYearChange() {
+    this.onDivisionAChange();
+    this.onDivisionBChange();
+    this.onDivisionCChange();
+  }
+
+  onDivisionAChange() {
+    this.loading = true;
+
+    this._dataService.getHistory(this.yearSelected, this.divisionIdSelectedA)
+      .subscribe((standings) => {
+
+        this.loading = false;
+        this.standingsA = standings;
+
+      });
+  }
+
+  onDivisionBChange() {
+    this.loading = true;
+
+    this._dataService.getHistory(this.yearSelected, this.divisionIdSelectedB)
+      .subscribe((standings) => {
+
+        this.loading = false;
+        this.standingsB = standings;
+
+      });
+  }
+
+  onDivisionCChange() {
+    this.loading = true;
+
+    this._dataService.getHistory(this.yearSelected, this.divisionIdSelectedC)
+      .subscribe((standings) => {
+
+        this.loading = false;
+        this.standingsC = standings;
+
+      });
+  }
 }
+
+interface Pooler {
+  PoolerName: string,
+  Earnings: number
+}
+
+interface Division {
+  Name: string,
+  DivisionId: number
+}
+
