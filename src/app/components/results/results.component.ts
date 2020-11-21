@@ -16,6 +16,7 @@ export class ResultsComponent implements OnInit {
   events: Tournament[]=[];
   selectedEvent: Tournament = null;  
   results: any[]=[];
+  eventId = "";
   
 
   constructor(private _dataService:DataService, private _titleService: Title) { }
@@ -38,6 +39,20 @@ export class ResultsComponent implements OnInit {
   getEventResults(){
 
     this._dataService.getEventResults(this.selectedEvent.EventId.toString()).subscribe((results) => { 
+      
+      this.eventEarnings = results;
+
+    }); 
+
+  }
+
+  getEventResults2(){
+
+    console.log("here");
+
+    console.log(this.eventId);
+
+    this._dataService.getEventResults2(this.eventId).subscribe((results) => { 
       
       this.eventEarnings = results;
 

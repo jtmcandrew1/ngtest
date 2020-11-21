@@ -1,3 +1,4 @@
+export const API_URL4 = "http://localhost:64994/api/home/"
 export const API_URL3 = "https://data.thegolfpool.net/api/home/"
 export const API_URL2 = "http://golfpooldatacore.azurewebsites.net/api/home/"
 export const API_URL = "https://functionappgolfpool.azurewebsites.net/api/"
@@ -18,9 +19,9 @@ export const CAN_ADD_DROP: boolean = false
 
 export const CAN_MAKE_PICKS: boolean = false
     
-export const CURRENT_YEAR: string = "2019"
+export const CURRENT_YEAR: number = 2021
 
-export const YEARS = ["2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009"]
+export const YEARS = [2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009]
 
 
 

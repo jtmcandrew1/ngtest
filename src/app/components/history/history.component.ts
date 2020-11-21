@@ -27,7 +27,7 @@ export class HistoryComponent implements OnInit {
 
   //year: string = "2019";
 
-  yearSelected: string
+  yearSelected: number
 
   years: any[];
 
@@ -38,9 +38,9 @@ export class HistoryComponent implements OnInit {
   ngOnInit() {
 
     this._titleService.setTitle('History | the golf pool');
-
-    this.years = config.YEARS //["2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009"];
-    this.yearSelected = config.CURRENT_YEAR;
+     
+    this.years = config.YEARS.filter(obj => obj < config.CURRENT_YEAR);
+    this.yearSelected = config.CURRENT_YEAR - 1;
 
     this._dataService.getDivisions().subscribe((divisions) => {
 

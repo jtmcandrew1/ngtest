@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Title} from '@angular/platform-browser'
 
 import { DataService } from '../../services/data.service';
+import * as config from '../../config';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import {Observable} from 'rxjs/Rx';
@@ -14,21 +15,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   winnersAll:Winner[];
-  winners1:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};
-  winners2:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
-  winners3:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
-  winners4:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
-  winners5:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
-  winners6:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
-  winners7:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
-  winners8:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
-  winners9:Winner={ Year:"", DivisionId:"", First:"", Second:"",  Third:""};;
+  winners1:Winner={ Year:0, DivisionId:"", First:"", Second:"",  Third:""};
+  winners2:Winner={ Year:0, DivisionId:"", First:"", Second:"",  Third:""};
+  winners3:Winner={ Year:0, DivisionId:"", First:"", Second:"",  Third:""};
+  winners4:Winner={ Year:0, DivisionId:"", First:"", Second:"",  Third:""};
+  winners5:Winner={ Year:0, DivisionId:"", First:"", Second:"",  Third:""};
+  winners6:Winner={ Year:0, DivisionId:"", First:"", Second:"",  Third:""};
+  winners7:Winner={ Year:0, DivisionId:"", First:"", Second:"",  Third:""};
+  winners8:Winner={ Year:0, DivisionId:"", First:"", Second:"",  Third:""};
+  winners9:Winner={ Year:0, DivisionId:"", First:"", Second:"",  Third:""};
+  winners10:Winner={ Year:0, DivisionId:"", First:"", Second:"",  Third:""};
 
   rssFeeds:any[];
-  year:string = "2019";
-
+  year:number;
   
-  yearSelected: string
+  yearSelected: number
 
   years:any[];
   
@@ -39,9 +40,8 @@ export class HomeComponent implements OnInit {
   
     this._titleService.setTitle('Home | the golf pool');
 
-    this.years = ["2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010"];    
-    this.yearSelected = "2019";  
-   
+    this.years = config.YEARS
+    this.yearSelected = config.CURRENT_YEAR - 1;   
 
     this._dataService.getWinners().subscribe((winners) => {      
         this.winnersAll = winners;  
@@ -49,8 +49,6 @@ export class HomeComponent implements OnInit {
         this.onYearChange();
         
         this.getRss();
-        
-         
     });   
 
   } 
@@ -89,6 +87,9 @@ export class HomeComponent implements OnInit {
 
       this.winners8 = this.winnersAll.filter(
         winner => winner.DivisionId == "8" && winner.Year ==  this.yearSelected)[0];
+
+      this.winners10 = this.winnersAll.filter(
+          winner => winner.DivisionId == "10" && winner.Year ==  this.yearSelected)[0];
           
       this.winners9 = this.winnersAll.filter(
         winner => winner.DivisionId == "9" && winner.Year ==  this.yearSelected)[0];           
@@ -98,7 +99,7 @@ export class HomeComponent implements OnInit {
 } 
 
 interface Winner{
-  Year:string,
+  Year:number,
   DivisionId:string,  
   First:string,
   Second:string,

@@ -72,6 +72,9 @@ export class PlayersComponent implements OnInit {
   }
 
   refreshLeaderboard(){
+
+    //golf.com leaderboard down 5/15/2020
+
     this.loading = true;
 
     this._dataService.getPlayerLeaderboard().subscribe((playerLeaderboard) => {

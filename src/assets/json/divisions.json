@@ -20,10 +20,13 @@
         "DivisionId": 4  
       },
       {       
-       "Name": "The Masters",
-       "DivisionId": 5  
+       "Name": "WGC-FedEx St. Jude",
+       "DivisionId": 10  
       },
-     
+      {       
+        "Name": "The Masters",
+        "DivisionId": 5  
+       },     
        {
        "Name": "US Open",
        "DivisionId": 6  

@@ -240,8 +240,18 @@ public getEventResults(eventId) : Observable<any> {
                 .map((res: any) => {
                     
         return res.json();
-            })}              
-  
+            })}      
+            
+            
+public getEventResults2(eventId) : Observable<any> {
+
+    console.log(eventId);
+    return this.http.get(config.API_URL3 + "GetEventResults2" + "?eventId=" + eventId)
+                .map((res: any) => {
+                    
+        return res.json();
+            })}     
+
 
 
 public getDropPlayers(poolerId) : Observable<any> {

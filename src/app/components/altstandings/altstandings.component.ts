@@ -48,10 +48,10 @@ export class AltstandingsComponent implements OnInit {
     this.divisionIdSelectedA = 9;
     this.onDivisionAChange();
 
-    this.divisionIdSelectedB = 2;
+    this.divisionIdSelectedB = 1;
     this.onDivisionBChange();
 
-    this.divisionIdSelectedC = 3;
+    this.divisionIdSelectedC = 2;
     this.onDivisionCChange();
   }
 
