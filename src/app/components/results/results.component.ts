@@ -70,6 +70,16 @@ export class ResultsComponent implements OnInit {
     
   }
 
+  updateCurrentEvent(){
+
+    this._dataService.updateCurrentEvent(this.selectedEvent.EventId.toString()).subscribe((results) => { 
+      
+      
+
+    }); 
+
+  }
+
 
   updateEventResults(){    
 

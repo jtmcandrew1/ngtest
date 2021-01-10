@@ -1,3 +1,5 @@
+import { truncate } from "fs"
+
 export const API_URL4 = "http://localhost:64994/api/home/"
 export const API_URL3 = "https://data.thegolfpool.net/api/home/"
 export const API_URL2 = "http://golfpooldatacore.azurewebsites.net/api/home/"
@@ -13,7 +15,7 @@ export const CONTACT_EMAIL = "info@thegolfpool.net"
 
 export const REDIRECT_ON: boolean = false
 
-export const ADD_DROP_PERIOD: number = 2
+export const ADD_DROP_PERIOD: number = 1
 
 export const CAN_ADD_DROP: boolean = false
 

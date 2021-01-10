@@ -252,6 +252,13 @@ public getEventResults2(eventId) : Observable<any> {
         return res.json();
             })}     
 
+ public updateCurrentEvent(eventId) : Observable<any> {
+                return this.http.get(config.API_URL3 + "UpdateCurrentEvent" + "?eventId=" + eventId)
+                            .map((res: any) => {
+                                
+                    //return res.json();
+                        })}  
+
 
 
 public getDropPlayers(poolerId) : Observable<any> {
