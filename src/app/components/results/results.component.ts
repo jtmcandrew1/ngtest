@@ -74,7 +74,7 @@ export class ResultsComponent implements OnInit {
 
     this._dataService.updateCurrentEvent(this.selectedEvent.EventId.toString()).subscribe((results) => { 
       
-      
+      this.status = "event set";
 
     }); 
 
@@ -94,21 +94,20 @@ export class ResultsComponent implements OnInit {
 
          line = line.replace("&#039;", "'");
          line = line.replace("酶", "o");
+         line = line.replace("谩", "a");
+         line = line.replace("帽", "n");
+
+         //Sebasti谩n Mu帽oz   
 
           var lineArray = line.split("$");
-          //console.log(result[0], "   " + result[1]); 
-
+          
           var result : Result = {PlayerName : lineArray[0].trim(), Earnings : lineArray[1].trim(), EventId : this.selectedEvent.EventId.toString()};
+               
+          results.push(result);          
+          
+       }
 
-          //alert(result.PlayerName + "," + result.Earnings + "," + result.EventId)
-          
-          results.push(result);   
-          
-          
-          
-    } 
-
-    //console.log(results);  
+    //console.log(results);    
 
     this._dataService.postEventResult(results).subscribe((response) => { 
 

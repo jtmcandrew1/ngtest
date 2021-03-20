@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     this._titleService.setTitle('Home | the golf pool');
 
     this.years = config.YEARS
-    this.yearSelected = config.CURRENT_YEAR - 1;   
+    this.yearSelected = config.CURRENT_YEAR;   
 
     this._dataService.getWinners().subscribe((winners) => {      
         this.winnersAll = winners;  
