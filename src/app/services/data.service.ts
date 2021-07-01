@@ -57,7 +57,16 @@ public getStandings(divisionId) : Observable<any> {
             //                 .map((res: any) => {
                               
             //       return res.json(); 
-            //           })}               
+            //           })}    
+            
+public getEventStandings(eventId) : Observable<any> { 
+
+    // return this.http.get(config.API_URL2 + "api/home/GetStandings/"+ "?divisionId=" + divisionId + "&addDropPeriod=" + config.ADD_DROP_PERIOD)
+    return this.http.get(config.API_URL3 + "GetEventStandings" + "?eventId=" + eventId + "&addDropPeriod=" + config.ADD_DROP_PERIOD)
+                    .map((res: any) => {       
+                    
+                        return res.json();
+            })} 
 
 
 public getDivisions() : Observable<any> {
@@ -80,6 +89,12 @@ public getQuote() : Observable<any> {
                       .map((res: any) => {                       
             return res.json(); 
                })}
+
+public getSettings() : Observable<any> {
+        return this.http.get(config.API_URL3 + "GetSettings")
+                .map((res: any) => {                       
+        return res.json(); 
+        })}
 
 public getLastUpdateTime() : Observable<any> {
          return this.http.get(config.API_URL3 + "GetLastUpdateTime")

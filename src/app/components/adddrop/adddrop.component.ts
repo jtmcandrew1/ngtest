@@ -12,6 +12,9 @@ import * as config from '../../config';
   styleUrls: ['./adddrop.component.css', '../../app.component.css']
 })
 export class AdddropComponent implements OnInit {
+
+  settings: Settings;
+
   poolers: Pooler[] = [];
   poolerIdSelected = 0;
 
@@ -52,10 +55,7 @@ export class AdddropComponent implements OnInit {
       .subscribe((dropPlayers) => {       
 
         this.loading = false;
-        this.dropPlayers = dropPlayers;
-
-        // this.dropPlayers.unshift({ PlayerName: 'select a player...', PlayerRankId: 0 })
-        // this.dropPlayerIdSelected = 0;        
+        this.dropPlayers = dropPlayers;            
 
       });
 
@@ -63,10 +63,7 @@ export class AdddropComponent implements OnInit {
       .subscribe((addPlayers) => {       
 
         this.loading = false;
-        this.addPlayers = addPlayers;
-
-        // this.addPlayers.unshift({ PlayerName: 'select a player...', PlayerRankId: 0 })
-        // this.addPlayerIdSelected = 0; 
+        this.addPlayers = addPlayers; 
 
         this.isValid = false;
         this.dropPlayerIdSelected = 0;

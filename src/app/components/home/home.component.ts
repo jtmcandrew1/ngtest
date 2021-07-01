@@ -32,6 +32,8 @@ export class HomeComponent implements OnInit {
   yearSelected: number
 
   years:any[];
+
+  settings: Settings;
   
 
   constructor(private _dataService:DataService, private _titleService: Title) { }
@@ -39,6 +41,8 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
   
     this._titleService.setTitle('Home | the golf pool');
+
+    //this.getSettings();
 
     this.years = config.YEARS
     this.yearSelected = config.CURRENT_YEAR;   
@@ -60,6 +64,14 @@ export class HomeComponent implements OnInit {
     }); 
 
   }
+
+  // getSettings(){
+
+  //   this._dataService.getSettings().subscribe((settings) => {     
+  //     this.settings = settings;
+  //   }); 
+
+  // }
   
 
  onYearChange()

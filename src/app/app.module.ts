@@ -34,6 +34,8 @@ import { DivisiondetailComponent } from './components/divisiondetail/divisiondet
 
 import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
+import { EventResultsComponent } from './components/eventresults/eventresults.component';
+import { EventStandingsComponent } from './components/eventstandings/eventstandings.component';
 
 const appRoutes: Routes = [
 {path:'footer', component:FooterComponent},  
@@ -51,6 +53,8 @@ const appRoutes: Routes = [
 {path:'results', component:ResultsComponent},
 {path:'picks', component:PicksComponent},
 {path:'adddrop', component:AdddropComponent},
+{path:'eventresults', component:EventResultsComponent},
+{path:'eventstandings', component:EventStandingsComponent},
 {path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
@@ -81,7 +85,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SpinnerComponent,
     AdddropComponent,
     AltstandingsComponent,
-    DivisiondetailComponent
+    DivisiondetailComponent,
+    EventResultsComponent,
+    EventStandingsComponent
    
     
    
