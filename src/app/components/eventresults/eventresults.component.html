@@ -1,0 +1,112 @@
+<section class="g-bg-size-cover g-bg-pos-center g-bg-cover g-py-50 g-mb-20" style="background-image: url(../assets/img/golf/carne-2.jpg);">
+  <div class="container g-bg-cover__inner">
+    <header class="g-mb-20">
+      <!-- <h3 class="h5 g-font-weight-300 g-mb-5">Breadcrumbs</h3> -->
+      <h2 class="h1 g-font-weight-300 text-uppercase g-color-white">Event Results
+      </h2>
+    </header>
+  </div>
+</section>
+
+<!--=== Content Part ===-->
+
+
+<app-spinner [loading]="loading"></app-spinner>
+
+<div class="container"> 
+
+ 
+  <div class="wrapper">    
+
+
+  <div class="standings">
+    <div class="col-md-12">
+      <div class="form-group g-mb-15 g-mt-15">
+        <select class="form-control rounded-0" [(ngModel)]="eventIdSelectedA" (ngModelChange)="onEventAChange($event)">
+          <option *ngFor="let d of eventsA" [ngValue]="d.EventId">{{d.EventName}}</option>
+        </select>
+      </div>
+      <div *ngFor="let pooler of standingsA; let i = index">
+        <div class="pooler">
+
+          <div class="align-center">
+            <h6>{{i + 1}}</h6>
+          </div>
+
+          <div>
+            <h6>{{pooler.PoolerName}}</h6>
+          </div>
+
+          <div class="align-right">
+            <h6>{{pooler.ResultsSum | currency:'USD':true:'1.0-0'}}</h6>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="standings">
+    <div class="col-md-12">
+
+      <div class="form-group g-mb-15 g-mt-15">
+        <select class="form-control rounded-0" [(ngModel)]="eventIdSelectedB" (ngModelChange)="onEventBChange($event)">
+          <option *ngFor="let d of eventsB" [ngValue]="d.EventId">{{d.EventName}}</option>
+        </select>
+      </div>
+      <div *ngFor="let pooler of standingsB; let i = index">
+        <div class="pooler">
+          <div class="align-center">
+            <h6>{{ i + 1 }}</h6>
+          </div>
+          <div>
+            <h6>{{pooler.PoolerName}}</h6>
+          </div>
+          <div class="align-right">
+            <h6>{{pooler.ResultsSum | currency:'USD':true:'1.0-0'}}</h6>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="standings">
+    <div class="col-md-12">
+
+      <div class="form-group g-mb-15 g-mt-15">
+        <select class="form-control rounded-0" [(ngModel)]="eventIdSelectedC" (ngModelChange)="onEventCChange($event)">
+          <option *ngFor="let d of eventsC" [ngValue]="d.EventId">{{d.EventName}}</option>
+        </select>
+      </div>
+      <div *ngFor="let pooler of standingsC; let i = index">
+        <div class="pooler">
+          <div class="align-center">
+            <h6>{{ i + 1 }}</h6>
+          </div>
+          <div>
+            <h6>{{pooler.PoolerName}}</h6>
+          </div>
+          <div class="align-right">
+            <h6>{{pooler.ResultsSum | currency:'USD':true:'1.0-0'}}</h6>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+ 
+</div>
+</div>
+
+<!-- Main End Wrapper -->
+<!--/container-->
+<!--=== End Content Part ===-->
+

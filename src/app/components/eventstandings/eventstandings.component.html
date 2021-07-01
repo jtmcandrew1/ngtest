@@ -1,0 +1,60 @@
+<section class="g-bg-size-cover g-bg-pos-center g-bg-cover g-py-50 g-mb-20" style="background-image: url(../assets/img/golf/augusta-bridge.jpg);">
+  <div class="container g-bg-cover__inner">
+    <header class="g-mb-20">
+      <!-- <h3 class="h5 g-font-weight-300 g-mb-5">Breadcrumbs</h3> -->
+      <h2 class="h1 g-font-weight-300 text-uppercase g-color-white">Event Standings
+      </h2>
+    </header>
+  </div>
+</section>
+
+<app-spinner [loading] = "loading"></app-spinner>
+
+<div class="wrapper container">
+  <div class="row standings">
+    <!-- Begin Content -->
+    <div class="col-md-12">
+      <br>
+      <!-- <h4 class="h5 text-white g-font-weight-400 align-center g-bg-primary g-mb-20">updated: {{lastUpdate}}</h4> -->
+
+      <div class="form-group g-mb-25">       
+        <select class="form-control rounded-0" [(ngModel)]="eventIdSelected" (ngModelChange)="onEventChange($event)">
+        <option *ngFor="let d of events" [ngValue]="d.EventId">{{d.EventName}}</option>
+    </select>
+      </div>
+
+      <!--  g-bg-gray-light-v4 -->
+      <!-- Default Outline Panel-->
+      <div class="card card-outline-success rounded-0" *ngFor="let pooler of standings; let i = index">
+        <div class="card-header h5 text-darkgray g-bg-gray-lineargradient g-brd-transparent rounded-0 pooler header-height" (click)="pooler.Open = !pooler.Open">
+         
+          <div class="align-center">
+            <h6>{{ i + 1 }}</h6>
+          </div>
+          <div>
+            <h6>{{pooler.PoolerName}}</h6>
+          </div>
+          <div class="align-right">
+            <h6>{{pooler.ResultsSum | currency:'USD':true:'1.0-0'}}</h6>
+          </div>
+          <div class="align-center">
+            <h6 class="icon-opacity"><i [class]="pooler.Open ? openChevron : closeChevron"></i></h6>
+          </div>
+
+        </div>
+
+        <div class="card-block" *ngIf="pooler.Open">
+          <div class="h6 playerdetails" *ngFor="let player of pooler.Results; let i = index">
+            <div class="align-center">{{ i + 1 }}</div>
+            <div>{{player.PlayerName}}</div>          
+            <div class="align-right">{{player.Earnings | currency:'USD':true:'1.0-0'}}</div>
+            <div> </div>
+          </div>
+          <!-- <p class="card-text"></p> -->
+        </div>
+      </div>
+      <!-- End Default Outline Panel-->
+
+    </div>
+  </div>
+</div>

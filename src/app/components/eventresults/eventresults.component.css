@@ -1,0 +1,15 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr) ) ;
+  }
+  
+ 
+  
+  
+  .pooler{   
+      display: grid;
+       grid-template-columns: 2fr 12fr 6fr;
+      /* grid-auto-rows: minxax(2px, auto);  */
+      /* background-color:  #edede4; */   
+  
+  }
