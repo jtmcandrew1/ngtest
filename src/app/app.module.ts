@@ -36,6 +36,7 @@ import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
 import { EventResultsComponent } from './components/eventresults/eventresults.component';
 import { EventStandingsComponent } from './components/eventstandings/eventstandings.component';
+import { PlayerEventResultsComponent } from './components/playereventresults/playereventresults.component';
 
 const appRoutes: Routes = [
 {path:'footer', component:FooterComponent},  
@@ -55,6 +56,7 @@ const appRoutes: Routes = [
 {path:'adddrop', component:AdddropComponent},
 {path:'eventresults', component:EventResultsComponent},
 {path:'eventstandings', component:EventStandingsComponent},
+{path:'playereventresults', component:PlayerEventResultsComponent},
 {path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
@@ -87,7 +89,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AltstandingsComponent,
     DivisiondetailComponent,
     EventResultsComponent,
-    EventStandingsComponent
+    EventStandingsComponent,
+    PlayerEventResultsComponent
    
     
    

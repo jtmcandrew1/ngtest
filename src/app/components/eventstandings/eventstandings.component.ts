@@ -34,19 +34,24 @@ export class EventStandingsComponent implements OnInit {
 
 
     this._titleService.setTitle('Event Standings | the golf pool');
-    
 
-
-    this._dataService.getEvents().subscribe((events) => {
-
-      console.log(this.events);
+    this._dataService.getEvents().subscribe((events) => {     
 
       this.events = events;
 
     });
+    
+    this._dataService.getLatestEventId().subscribe((id) => {      
 
-    this.eventIdSelected = 1;
-    this.onEventChange();
+      this.eventIdSelected = id;
+      this.onEventChange();
+
+    });
+
+   
+
+    
+   
 
   }
 

@@ -60,14 +60,25 @@ public getStandings(divisionId) : Observable<any> {
             //           })}    
             
 public getEventStandings(eventId) : Observable<any> { 
-
-    // return this.http.get(config.API_URL2 + "api/home/GetStandings/"+ "?divisionId=" + divisionId + "&addDropPeriod=" + config.ADD_DROP_PERIOD)
-    return this.http.get(config.API_URL3 + "GetEventStandings" + "?eventId=" + eventId + "&addDropPeriod=" + config.ADD_DROP_PERIOD)
+ return this.http.get(config.API_URL3 + "GetEventStandings" + "?eventId=" + eventId + "&addDropPeriod=" + config.ADD_DROP_PERIOD)
                     .map((res: any) => {       
                     
                         return res.json();
             })} 
 
+public getPlayerResultsByEventId(eventId) : Observable<any> {     
+    return this.http.get(config.API_URL3 + "getPlayerResultsByEventId" + "?eventId=" + eventId)
+                    .map((res: any) => {       
+                    
+                        return res.json();
+            })} 
+
+public getLatestEventId() : Observable<any> {
+    return this.http.get(config.API_URL3 + "GetLatestEventId")
+    .map((res: any) => {       
+    
+        return res.json();
+})} 
 
 public getDivisions() : Observable<any> {
     return this.http.get("assets/json/divisions.json")

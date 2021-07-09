@@ -28,10 +28,14 @@ export class ResultsComponent implements OnInit {
     this._dataService.getEvents().subscribe((events) => { 
       
       this.events = events;
+
+      this.selectedEvent = this.events.find(e => e.IsCurrentEvent === true);
+
+      //this.selectedEvent = currentEvent;
       
     }); 
 
-    this.getEspnEventResults();
+    //this.getEspnEventResults();
     
    
   }
@@ -139,6 +143,7 @@ interface Result{
 interface Tournament{
   EventId:number
   EventName:string   
+  IsCurrentEvent: boolean
  
 }
 

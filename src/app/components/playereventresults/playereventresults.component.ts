@@ -7,21 +7,21 @@ import { DataService } from '../../services/data.service';
 import * as config from '../../config';
 
 @Component({
-  selector: 'app-eventresults',
-  templateUrl: './eventresults.component.html',
-  styleUrls: ['./eventresults.component.css']
+  selector: 'app-playereventresults',
+  templateUrl: './playereventresults.component.html',
+  styleUrls: ['./playereventresults.component.css']
 })
-export class EventResultsComponent implements OnInit {
+export class PlayerEventResultsComponent implements OnInit {
 
-  standingsA: Pooler[];
+  standingsA: Player[];
   eventsA: Event[] = [];
   selectedEventIdA: number;
 
-  standingsB: Pooler[];
+  standingsB: Player[];
   eventsB: Event[] = [];
   selectedEventIdB: number;
 
-  standingsC: Pooler[];
+  standingsC: Player[];
   eventsC: Event[] = [];
   selectedEventIdC: number;
 
@@ -33,7 +33,7 @@ export class EventResultsComponent implements OnInit {
 
   ngOnInit() {
 
-    this._titleService.setTitle('Event Results | the golf pool');
+    this._titleService.setTitle('Player Event Results | the golf pool');
         
 
     this._dataService.getEvents().subscribe((events) => {
@@ -64,7 +64,7 @@ export class EventResultsComponent implements OnInit {
 
     
 
-    this._dataService.getEventStandings(this.selectedEventIdA)
+    this._dataService.getPlayerResultsByEventId(this.selectedEventIdA)
       .subscribe((standings) => {
 
         this.loading = false;
@@ -76,7 +76,7 @@ export class EventResultsComponent implements OnInit {
   onEventBChange() {
     this.loading = true;
 
-    this._dataService.getEventStandings(this.selectedEventIdB)
+    this._dataService.getPlayerResultsByEventId(this.selectedEventIdB)
       .subscribe((standings) => {
 
         this.loading = false;
@@ -88,7 +88,7 @@ export class EventResultsComponent implements OnInit {
   onEventCChange() {
     this.loading = true;
 
-    this._dataService.getEventStandings(this.selectedEventIdC)
+    this._dataService.getPlayerResultsByEventId(this.selectedEventIdC)
       .subscribe((standings) => {
 
         this.loading = false;
@@ -98,8 +98,8 @@ export class EventResultsComponent implements OnInit {
   }
 }
 
-interface Pooler {
-  PoolerName: string,
+interface Player {
+  PlayerName: string,
   Earnings: number
 }
 
@@ -108,4 +108,5 @@ interface Event {
   EventId: number,
   IsCurrentEvent: boolean
 }
+
 

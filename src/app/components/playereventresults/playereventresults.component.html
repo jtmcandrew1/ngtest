@@ -2,7 +2,7 @@
   <div class="container g-bg-cover__inner">
     <header class="g-mb-20">
       <!-- <h3 class="h5 g-font-weight-300 g-mb-5">Breadcrumbs</h3> -->
-      <h2 class="h1 g-font-weight-300 text-uppercase g-color-white">Event Results
+      <h2 class="h1 g-font-weight-300 text-uppercase g-color-white">Player Event Results
       </h2>
     </header>
   </div>
@@ -26,19 +26,15 @@
           <option *ngFor="let d of eventsA" [ngValue]="d.EventId">{{d.EventName}}</option>
         </select>
       </div>
-      <div *ngFor="let pooler of standingsA; let i = index">
-        <div class="pooler">
-
-          <div class="text-center">
-            <h6>{{i + 1}}</h6>
-          </div>
+      <div *ngFor="let player of standingsA; let i = index">
+        <div class="player">        
 
           <div>
-            <h6>{{pooler.PoolerName}}</h6>
+            <h6>{{player.PlayerName}}</h6>
           </div>
 
           <div class="text-right">
-            <h6>{{pooler.ResultsSum | currency:'USD':true:'1.0-0'}}</h6>
+            <h6>{{player.ResultsTotal | currency:'USD':true:'1.0-0'}}</h6>
           </div>
 
         </div>
@@ -57,19 +53,15 @@
           <option *ngFor="let d of eventsB" [ngValue]="d.EventId">{{d.EventName}}</option>
         </select>
       </div>
-      <div *ngFor="let pooler of standingsB; let i = index">
-        <div class="pooler">
-
-          <div class="text-center">
-            <h6>{{i + 1}}</h6>
-          </div>
+      <div *ngFor="let player of standingsB; let i = index">
+        <div class="player">        
 
           <div>
-            <h6>{{pooler.PoolerName}}</h6>
+            <h6>{{player.PlayerName}}</h6>
           </div>
 
           <div class="text-right">
-            <h6>{{pooler.ResultsSum | currency:'USD':true:'1.0-0'}}</h6>
+            <h6>{{player.ResultsTotal | currency:'USD':true:'1.0-0'}}</h6>
           </div>
 
         </div>
@@ -87,19 +79,15 @@
           <option *ngFor="let d of eventsC" [ngValue]="d.EventId">{{d.EventName}}</option>
         </select>
       </div>
-      <div *ngFor="let pooler of standingsC; let i = index">
-        <div class="pooler">
-
-          <div class="text-center">
-            <h6>{{i + 1}}</h6>
-          </div>
+      <div *ngFor="let player of standingsC; let i = index">
+        <div class="player">        
 
           <div>
-            <h6>{{pooler.PoolerName}}</h6>
+            <h6>{{player.PlayerName}}</h6>
           </div>
 
           <div class="text-right">
-            <h6>{{pooler.ResultsSum | currency:'USD':true:'1.0-0'}}</h6>
+            <h6>{{player.ResultsTotal | currency:'USD':true:'1.0-0'}}</h6>
           </div>
 
         </div>
